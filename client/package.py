@@ -6,7 +6,7 @@ package = 'Manager'
 packagename = f"Artisan{package}_v{version}"
 packagelocation = "/var/www/updater/software"
 packagepath = f"{packagelocation}/{packagename}"
-package = shutil.make_archive(f'{packagepath}', 'zip', '/root/Artisan-Hosting/Machine-Management/client')
+package = shutil.make_archive(f'{packagepath}', 'zip', '/opt/Artisan/client')
 
 if os.path.exists(f"{packagepath}.zip"):
    print(package) 
