@@ -1,0 +1,2 @@
+# the machine_mgmt.py is located in /var/scripts/machine_mgmt.py
+it is ran every minute to determin what clients and sites are on each machine

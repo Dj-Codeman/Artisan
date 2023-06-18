@@ -1,0 +1,13 @@
+<VirtualHost *:PN>
+    DocumentRoot /var/www/wordpress_demo-0000
+    <Directory /var/www/wordpress_demo-0000>
+        Options FollowSymLinks
+        AllowOverride Limit Options FileInfo
+        DirectoryIndex index.php
+        Require all granted
+    </Directory>
+    <Directory /var/www/wordpress_demo-0000/wp-content>
+        Options FollowSymLinks
+        Require all granted
+    </Directory>
+</VirtualHost>

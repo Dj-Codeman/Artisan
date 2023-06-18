@@ -1,0 +1,11 @@
+[Unit]
+Description=Artisan Hosting First Run Initialization
+After=network.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/bin/bash /usr/local/bin/Artisan/kickstart/kickstart.sh
+
+[Install]
+WantedBy=multi-user.target

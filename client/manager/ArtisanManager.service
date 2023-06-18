@@ -1,0 +1,12 @@
+[Unit]
+Description=Artisan Hosting Machine Management Server
+After=network.target
+WantsArtisanManager.timer
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/env python3 /var/scripts/machine_mgmt.py
+
+[Install]
+WantedBy=timers.target

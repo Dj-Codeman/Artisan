@@ -1,0 +1,33 @@
+---
+- version: 2
+  type: hard
+  
+  Manager:
+    Service:
+    - 'Artisan_Manager_service_original: "/etc/systemd/system/ArtisanManager.service"'
+    - 'Artisan_Manager_service_new: "/tmp/artisan_update/Artisan_Manager/ArtisanManager.service"'
+    Timer:
+    - 'Artisan_Manager_service_original: "/etc/systemd/system/ArtisanManager.timer"'
+    - 'Artisan_Manager_service_new: "/tmp/artisan_update/Artisan_Manager/ArtisanManager.timer"'
+    Software:
+    - 'Machine_Manager_original: "/usr/local/bin/Artisan/Manager/artisan_manage.py"'
+    - 'Machine_Manager_new: "/tmp/artisan_update/Artisan-Manager/artisan_manage.py"'
+
+  Updater:
+    Service:
+    - 'Artisan_Updater_service_original: "/etc/systemd/system/ArtisanUpdater.service"'
+    - 'Artisan_Updater_service_new: "/tmp/artisan_update/Artisan_Updater/ArtisanUpdater.service"'
+    Timer:
+    - 'Artisan_Updater_timer_original: "/etc/systemd/system/ArtisanUpdater.timer"'
+    - 'Artisan_Updater_timer_new: "/tmp/artisan_update/Artisan_Updater/ArtisanUpdater.timer"'
+    Software_1:
+    - 'Artisan_Updater_php_original: "/usr/local/bin/Artisan/Updater/update_kickstart.php"'
+    - 'Artisan_Updater_php_new: "/tmp/artisan_update/Artisan_Updater/update_kickstart.php"'
+    Software_2:
+    - 'Artisan_Updater_py_original: "/usr/local/bin/Artisan/updater.py"'
+    - 'Artisan_Updater_py_new: "/tmp/artisan_update/Artisan_Updater/updater.py"'
+
+  Welcome:
+    Software:
+    - 'Artisan_Welcome_original: "/usr/local/bin/Artisan/Welcome/welcome.py"'
+    - 'Artisan_Welcome_new: "/tmp/artisan_update/Artisan_Welcome/welcome.py"'
