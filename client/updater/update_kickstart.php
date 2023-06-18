@@ -14,13 +14,9 @@ $data = [
     "package" => $package
 ];
 
-if (is_dir("/tmp/artisan_update")){
-    rmdir("/tmp/artisan_update");
-}
+rrmdir("/tmp/artisan_update");
+rrmdir("/tmp/artisan_fallback");
 
-if (is_dir("/tmp/artisan_fallback")){
-    rmdir("/tmp/artisan_fallback");
-}
 // Create HTTP POST Data
 $datastring = http_build_query($data);
 
@@ -88,4 +84,18 @@ if ($res === TRUE) {
 shell_exec("bash /tmp/artisan_update/updater/update.sh"); // * this is what applies the new updates and fixes the daemons
 die();
 
+function rrmdir($dir) { 
+    if (is_dir($dir)) { 
+      $objects = scandir($dir);
+      foreach ($objects as $object) { 
+        if ($object != "." && $object != "..") { 
+          if (is_dir($dir. DIRECTORY_SEPARATOR .$object) && !is_link($dir."/".$object))
+            rrmdir($dir. DIRECTORY_SEPARATOR .$object);
+          else
+            unlink($dir. DIRECTORY_SEPARATOR .$object); 
+        } 
+      }
+      rmdir($dir); 
+    } 
+  }
 ?>

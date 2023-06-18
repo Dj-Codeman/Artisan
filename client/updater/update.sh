@@ -6,7 +6,7 @@ systemctl stop ArtisanManager.timer
 systemctl stop ArtisanUpdater.timer
 
 # * Making dir to rollback 
-cd /tmp/artisan_update/ || echo "Update ill formed quiting to minimize damage" && exit 1
+cd /tmp/artisan_update/ || echo "Update ill formed"
 mkdir /tmp/artisan_fallback/
 
 mv -v /usr/local/bin/Artisan /tmp/artisan_fallback/Artisan.old/
