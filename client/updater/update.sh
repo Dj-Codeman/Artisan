@@ -19,27 +19,27 @@ mkdir /usr/local/bin/Artisan/{Firstrun,Manager,Updater,Welcome}
 
 # ! Manager 
 # * Software
-cp -v ./Artisan_Manager/*.py /usr/local/bin/Artisan/Manager/
-cp -v ./Artisan_Manager/*.sh /usr/local/bin/Artisan/Manager/
-cp -v ./Artisan_Manager/*.stub /usr/local/bin/Artisan/Manager/
+cp -v ./manager/*.py /usr/local/bin/Artisan/Manager/
+cp -v ./manager/*.sh /usr/local/bin/Artisan/Manager/
+cp -v ./manager/*.stub /usr/local/bin/Artisan/Manager/
 chmod +x /usr/local/bin/Artisan/Manager/*
 # * Service and timer files
-cp -v ./Artisan_Manager/*.service /etc/systemd/system/
-cp -v ./Artisan_Manager/*.timer /etc/systemd/system/
+cp -v ./manager/*.service /etc/systemd/system/
+cp -v ./manager/*.timer /etc/systemd/system/
 
 # ! Updater
 # * Software
-cp -v ./Artisan_Updater/*.sh /usr/local/bin/Artisan/Updater/
-cp -v ./Artisan_Updater/*.py /usr/local/bin/Artisan/Updater/
+cp -v ./updater/*.sh /usr/local/bin/Artisan/Updater/
+cp -v ./updater/*.py /usr/local/bin/Artisan/Updater/
 chmod +x /usr/local/bin/Artisan/Updater/*
 # * Service and timer files
-cp -v ./Artisan_Updater/*.service /etc/systemd/system/
-cp -v ./Artisan_Updater/*.timer /etc/systemd/system/
+cp -v ./updater/*.service /etc/systemd/system/
+cp -v ./updater/*.timer /etc/systemd/system/
 
 #! Welcome
 # * Software
-cp -v ./Artisan_Welcome/*.sh /usr/local/bin/Artisan/Welcome/
-cp -v ./Artisan_Welcome/*.py /usr/local/bin/Artisan/Welcome/
+cp -v ./welcome/*.sh /usr/local/bin/Artisan/Welcome/
+cp -v ./welcome/*.py /usr/local/bin/Artisan/Welcome/
 chmod +x /usr/local/bin/Artisan/Welcome/*
 
 #! remake soft links
