@@ -1,4 +1,4 @@
-import socket,os
+import socket,os,sys
 import smtplib
 from email.message import EmailMessage
 
@@ -25,3 +25,5 @@ def send_email(message):
 installed_version = os.popen("artisan --version-cli").read().rstrip()
 hostname = socket.gethostname()
 send_email(f"System {hostname} has installed version {installed_version} !")
+
+sys.exit(0)

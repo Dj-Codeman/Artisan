@@ -1,6 +1,9 @@
 import shutil,os.path
 
-version = '2.51' # version 2.60 pull the version number from the artisan manager script. also write it to the version.ar
+version = os.popen("/opt/Artisan/client/manager/artisan_manage.py --version-cli").read().rstrip() # version 2.60 pull the version number from the artisan manager script. also write it to the version.ar
+with open("/opt/Artisan/client/version.ar", 'w') as file:
+   file.write(version)
+
 package = 'Manager'
 
 packagename = f"Artisan{package}_v{version}"
