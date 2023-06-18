@@ -12,7 +12,7 @@ from mysql.connector import Error
 import smtplib
 from email.message import EmailMessage
 
-version = "2.1"
+version = "2.51"
 
 try:
     arg = sys.argv[1]

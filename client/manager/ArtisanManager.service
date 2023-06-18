@@ -6,7 +6,7 @@ WantsArtisanManager.timer
 [Service]
 Type=oneshot
 User=root
-ExecStart=/usr/bin/env python3 /var/scripts/machine_mgmt.py
+ExecStart=/usr/bin/env python3 /usr/local/bin/Artisan/Manager/artisan_manage.py
 
 [Install]
 WantedBy=timers.target

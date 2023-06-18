@@ -1,6 +1,6 @@
 import shutil,os.path
 
-version = '2.5'
+version = '2.51' # version 2.60 pull the version number from the artisan manager script. also write it to the version.ar
 package = 'Manager'
 
 packagename = f"Artisan{package}_v{version}"

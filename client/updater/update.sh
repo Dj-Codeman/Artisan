@@ -49,3 +49,5 @@ ln -sf /usr/local/bin/Artisan/Manager/artisan_manage.py /usr/local/bin/artisan
 systemctl daemon-reload
 systemctl start ArtisanManager.timer
 systemctl start ArtisanUpdater.timer
+
+python3 /usr/local/bin/Artisan/Updater/update.py
