@@ -292,7 +292,7 @@ def update_uuid(uuid):
                     # ! Creating the apache conf 
                     print(f"Machine {machine_id}: Apache I've Come To BARGIN ! \n")
                     # with open("/var/scripts/apache2.stub") as infile, open(f"{a2_conf}", 'w') as outfile:
-                    with open("/var/scripts/apache2.stub") as infile, open(f"/tmp/apache.tmp", 'w') as outfile: 
+                    with open("/usr/local/bin/Artisan/Manager/apache2.stub") as infile, open(f"/tmp/apache.tmp", 'w') as outfile: 
                        for line in infile:
                            outfile.write(line.replace("PN", f'{client_pn}'))
 

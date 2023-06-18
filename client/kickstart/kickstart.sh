@@ -3,6 +3,7 @@
 # ! ssh needs to be re-initialized 
 version="2.1"
 
+rm /etc/artisan.mid
 rm /etc/ssh/ssh_host_*
 rm /root/.bash_history
 dpkg-reconfigure openssh-server
