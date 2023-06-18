@@ -6,7 +6,7 @@ systemctl stop ArtisanManager.timer
 systemctl stop ArtisanUpdater.timer
 
 # * Making dir to rollback 
-cd /tmp/artisan_update/
+cd /tmp/artisan_update/ || echo "Update ill formed quiting to minimize damage" && exit 1
 mkdir /tmp/artisan_fallback/
 
 mv -v /usr/local/bin/Artisan /tmp/artisan_fallback/Artisan.old/
@@ -46,4 +46,14 @@ chmod +x /usr/local/bin/Artisan/Welcome/*
 rm /usr/local/bin/artisan
 ln -sf /usr/local/bin/Artisan/Manager/artisan_manage.py /usr/local/bin/artisan
 
-bash /usr/local/bin/Artisan/Updater/kickstart.sh
+python3 /usr/local/bin/Artisan/Updater/update.py
+
+cp /tmp/artisan_update/update_kickstart.php /usr/local/bin/Artisan/Updater/update_kickstart.php
+chmod +x /usr/local/bin/Artisan/Updater/update_kickstart.php
+
+version="Artisan Manager version: $(artisan --version-cli) installed"
+echo "$version"
+
+systemctl daemon-reload
+systemctl start ArtisanManager.timer
+systemctl start ArtisanUpdater.timer

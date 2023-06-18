@@ -14,6 +14,13 @@ $data = [
     "package" => $package
 ];
 
+if (is_dir("/tmp/artisan_update")){
+    rmdir("/tmp/artisan_update");
+}
+
+if (is_dir("/tmp/artisan_fallback")){
+    rmdir("/tmp/artisan_fallback");
+}
 // Create HTTP POST Data
 $datastring = http_build_query($data);
 
@@ -78,7 +85,7 @@ if ($res === TRUE) {
 }
 
 // start update process
-shell_exec("bash /usr/local/bin/Artisan/Updater/update.sh");
+shell_exec("bash /tmp/artisan_update/updater/update.sh"); // * this is what applies the new updates and fixes the daemons
 die();
 
 ?>
