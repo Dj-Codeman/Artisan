@@ -12119,3 +12119,1285 @@ Strict-Transport-Security: max-age=15768000
 {"data":[]}
 [90mSun, 18 Jun 2023 18:51:20 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1450[0m[36m >[0m VM Net Config 'map[0:map[bridge:vmbr0 id:0 macaddr:A6:C7:01:83:2E:89 model:virtio tag:-1]]' from '[map[bridge:vmbr0 macaddr:A6:C7:01:83:2E:89 model:virtio tag:-1]]' set as '[map[bridge:vmbr0 firewall:false link_down:false macaddr:A6:C7:01:83:2E:89 model:virtio queues:0 rate:0 tag:-1]]' type of 'string' [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
 [90mSun, 18 Jun 2023 18:51:20 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1452[0m[36m >[0m Finished VM read resulting in data: '{"additional_wait":0,"agent":1,"args":"","automatic_reboot":true,"balloon":0,"bios":"seabios","boot":"c","bootdisk":"scsi0","bridge":"","ci_wait":0,"cicustom":"","cipassword":"","ciuser":"","clone":"Dedicated-Image","clone_wait":0,"cloudinit_cdrom_storage":"","cores":1,"cpu":"host","default_ipv4_address":"10.1.0.35","define_connection_info":true,"desc":"ArtisanManager 2.61 installed\nOTA UPDATES WORKING","disk":[{"aio":"","backup":0,"cache":"none","discard":"","file":"vm-112-disk-0","format":"raw","iothread":1,"mbps":0,"mbps_rd":0,"mbps_rd_max":0,"mbps_wr":0,"mbps_wr_max":0,"media":"","replicate":0,"size":"10G","slot":0,"ssd":0,"storage":"local-lvm","storage_type":"lvmthin","type":"scsi","volume":"local-lvm:vm-112-disk-0"}],"disk_gb":0,"force_create":false,"force_recreate_on_change_of":"","full_clone":true,"guest_agent_ready_timeout":100,"hagroup":"","hastate":"","hotplug":"network,disk,usb","ipconfig0":"ip=10.1.0.101/24,gw=10.1.0.1","ipconfig1":"","ipconfig2":"","ipconfig3":"","ipconfig4":"","ipconfig5":"","iso":"","kvm":true,"mac":"","memory":1100,"name":"Artisan-Demo","nameserver":"","network":[{"bridge":"vmbr0","firewall":false,"link_down":false,"macaddr":"A6:C7:01:83:2E:89","model":"virtio","queues":0,"rate":0,"tag":-1}],"nic":"","numa":false,"onboot":false,"oncreate":true,"os_network_config":"","os_type":"cloud-init","pool":"","preprovision":true,"qemu_os":"l26","reboot_required":false,"scsihw":"virtio-scsi-single","searchdomain":"","serial":[],"sockets":1,"ssh_forward_ip":"","ssh_host":"10.1.0.35","ssh_port":"22","ssh_private_key":"","ssh_user":"","sshkeys":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDVQaQdpM8JWRM09WGVecCmahGzerVMdqHisAdGnIJ7tgv/sSdLQF7Vw85k5hiLt6X6YZ/PThvZ4ELlt0DVI2Rq+eVFFFo0k5XlVOlv5z1R1NG0b+sZLQZ6wjx9rhlChimrnK3P09o5Qq17SPOQsV/4rv/sMaz+lXOOral+PXpdYFdz9vPIM5Jm9nOwyap9TF+WB7jDn02BPL6/OPA7qfc1QUwLaZgnTZ+QxRDR7hbC6OTcWAKxPfSaxOnX0eGjgI8YeTYGY6kmyp4xylBNP5dR5AFnz9jlVgTrKnNsQtHRrseOvJPdzcbT5Lf58D0LTfj7Lu6wYxt9KJd/KZWSVPPsRXBQArxvArk4NLvAdXJi+uUm5cW6l+3k1BjvTBQi+hvveHWfwgOHRfKfRDHdlwNKDgUnt1fRMZmJb5eo03dp62sRbduW/h8SSi9MF2WMjUKytJNSqmDKjYfzhkrBEBzAXtnOtsfCHySSxOMwmdak4S+rC906ESwC0ws7dcKUuwc= dwhitfield@Archhome\n","storage":"","storage_type":"","tablet":true,"tags":"client;client_infrastructure;stable","target_node":"olympus","unused_disk":[],"vcpus":0,"vga":[],"vlan":-1,"vmid":0}' [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
+[90mSun, 18 Jun 2023 19:05:12 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:155[0m[36m >[0m Enabling the capture of log-library logs as ithe _capturelog flag was detected
+[90mSun, 18 Jun 2023 19:05:12 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:188[0m[36m >[0m Logging Started. Root Logger Set to level debug
+[90mSun, 18 Jun 2023 19:05:12 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1254[0m[36m >[0m Reading configuration for vmid [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
+2023/06/18 19:05:12 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:12 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 4747
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:12 GMT
+Expires: Mon, 19 Jun 2023 00:05:12 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[{"name":"haproxy","diskwrite":1909316608,"maxdisk":34359738368,"diskread":23388160,"maxmem":2147483648,"vmid":100,"disk":0,"mem":1133809664,"netin":3643383011,"cpu":0.0474932197900925,"type":"qemu","id":"qemu/100","maxcpu":1,"template":0,"status":"running","uptime":513558,"node":"olympus","netout":3651879201},{"disk":0,"tags":"client_infrastructure;internal_infrastructure;personal_infra","mem":1365893120,"maxmem":4299161600,"diskread":739371008,"vmid":101,"diskwrite":51677727232,"name":"database","maxdisk":68719476736,"status":"running","netout":41718590624,"node":"olympus","uptime":518589,"template":0,"id":"qemu/101","maxcpu":2,"cpu":0.0169618642107473,"netin":8244319991,"type":"qemu"},{"disk":0,"tags":"client;client_infrastructure;development","mem":0,"maxmem":4294967296,"diskread":0,"vmid":102,"diskwrite":0,"name":"Theaseus","maxdisk":10737418240,"status":"stopped","netout":0,"node":"olympus","uptime":0,"template":0,"id":"qemu/102","maxcpu":2,"cpu":0,"netin":0,"type":"qemu"},{"vmid":103,"maxmem":734003200,"diskread":694665918,"mem":499396608,"tags":"internal_infrastructure,client_infrastructure","disk":0,"maxdisk":17179869184,"diskwrite":1442377728,"name":"lieutenant","template":0,"node":"asguard","netout":190831639,"uptime":518605,"status":"running","type":"qemu","cpu":0.0219656501299179,"netin":453550904,"maxcpu":1,"id":"qemu/103"},{"vmid":104,"maxmem":1073741824,"diskread":303534782,"mem":509456384,"disk":0,"tags":"client_infrastructure;internal_infrastructure","maxdisk":17179869184,"diskwrite":4680908800,"name":"private","template":0,"netout":113432798,"node":"olympus","uptime":518578,"status":"running","type":"qemu","cpu":0.0135694913685979,"netin":270644492,"maxcpu":1,"id":"qemu/104"},{"id":"qemu/105","maxcpu":2,"cpu":0.0344083531132303,"netin":2046041797,"type":"qemu","status":"running","node":"olympus","netout":960703692,"uptime":518573,"template":0,"diskwrite":12767011840,"name":"jarvis","maxdisk":34359738368,"disk":0,"tags":"personal_infra","mem":1899868160,"maxmem":2147483648,"diskread":530259456,"vmid":105},{"maxdisk":34359738368,"name":"nextcloud","diskwrite":7622234112,"mem":1973059584,"disk":0,"tags":"personal_infra","vmid":106,"diskread":5249118878,"maxmem":4404019200,"maxcpu":2,"id":"qemu/106","type":"qemu","netin":21786060767,"cpu":0.509340551014156,"uptime":257641,"netout":6162400165,"node":"olympus","status":"running","template":0},{"diskread":4747415552,"maxmem":4299161600,"vmid":107,"tags":"personal_infra","disk":7099682816,"mem":658751488,"name":"pandora","diskwrite":455794688,"maxdisk":12615557120,"template":0,"status":"running","uptime":518085,"node":"asguard","netout":6564234,"netin":281703598,"cpu":0.020930593079405,"type":"lxc","id":"lxc/107","maxcpu":2},{"template":0,"node":"asguard","netout":0,"uptime":0,"status":"stopped","type":"lxc","cpu":0,"netin":0,"maxcpu":2,"id":"lxc/108","vmid":108,"maxmem":2202009600,"diskread":0,"mem":0,"tags":"personal_infra","disk":0,"maxdisk":8589934592,"diskwrite":0,"name":"codium"},{"mem":397828096,"disk":0,"tags":"internal_infrastructure,client_infrastructure","vmid":109,"diskread":216941246,"maxmem":536870912,"maxdisk":34359738368,"name":"vpn","diskwrite":1492566016,"uptime":518598,"node":"asguard","netout":384552240,"status":"running","template":0,"maxcpu":1,"id":"qemu/109","type":"qemu","netin":546171213,"cpu":0.00848672845928648},{"maxdisk":8388009984,"name":"arhost-haproxy","diskwrite":108773376,"mem":523280384,"tags":"client_infrastructure","disk":1016786944,"vmid":110,"diskread":201572352,"maxmem":2202009600,"maxcpu":2,"id":"lxc/110","type":"lxc","netin":213351772,"cpu":0.0271146319437747,"uptime":518585,"netout":31162411,"node":"asguard","status":"running","template":0},{"diskwrite":2596164608,"name":"Updater","maxdisk":10737418240,"maxmem":8493465600,"diskread":1217819136,"vmid":111,"disk":0,"tags":"client_infrastructure","mem":2217324544,"cpu":0.00896555679710931,"netin":181905499,"type":"qemu","id":"qemu/111","maxcpu":4,"template":0,"status":"running","netout":116417920,"node":"olympus","uptime":69259},{"maxdisk":26843545600,"name":"openldap","diskwrite":747954176,"mem":473534464,"disk":0,"tags":"internal_infrastructure,client_infrastructure","vmid":200,"diskread":350003712,"maxmem":536870912,"hastate":"started","maxcpu":1,"id":"qemu/200","type":"qemu","netin":346187923,"cpu":0.0124804830283625,"uptime":518605,"node":"asguard","netout":114787378,"status":"running","template":0},{"status":"stopped","uptime":0,"netout":0,"node":"olympus","template":1,"id":"qemu/9000","maxcpu":2,"netin":0,"cpu":0,"type":"qemu","disk":0,"tags":"client;client_infrastructure;stable","mem":0,"diskread":0,"maxmem":4294967296,"vmid":9000,"name":"Dedicated-Image","diskwrite":0,"maxdisk":10737418240}]}
+[90mSun, 18 Jun 2023 19:05:18 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:155[0m[36m >[0m Enabling the capture of log-library logs as ithe _capturelog flag was detected
+[90mSun, 18 Jun 2023 19:05:18 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:188[0m[36m >[0m Logging Started. Root Logger Set to level debug
+[90mSun, 18 Jun 2023 19:05:18 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1254[0m[36m >[0m Reading configuration for vmid [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
+2023/06/18 19:05:18 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:18 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 4747
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:18 GMT
+Expires: Mon, 19 Jun 2023 00:05:18 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[{"vmid":100,"diskread":23388160,"maxmem":2147483648,"mem":1132535808,"disk":0,"maxdisk":34359738368,"name":"haproxy","diskwrite":1909345792,"template":0,"uptime":513569,"netout":3651931519,"node":"olympus","status":"running","type":"qemu","netin":3643426834,"cpu":0.0643440460541372,"maxcpu":1,"id":"qemu/100"},{"vmid":101,"diskread":739371008,"maxmem":4299161600,"mem":1366122496,"tags":"client_infrastructure;internal_infrastructure;personal_infra","disk":0,"maxdisk":68719476736,"name":"database","diskwrite":51686659072,"template":0,"uptime":518599,"netout":41729323778,"node":"olympus","status":"running","type":"qemu","netin":8247019706,"cpu":0.148855628931213,"maxcpu":2,"id":"qemu/101"},{"mem":0,"tags":"client;client_infrastructure;development","disk":0,"vmid":102,"diskread":0,"maxmem":4294967296,"maxdisk":10737418240,"name":"Theaseus","diskwrite":0,"uptime":0,"netout":0,"node":"olympus","status":"stopped","template":0,"maxcpu":2,"id":"qemu/102","type":"qemu","netin":0,"cpu":0},{"maxcpu":1,"id":"qemu/103","type":"qemu","netin":453550904,"cpu":0.0219656501299179,"uptime":518605,"node":"asguard","netout":190831639,"status":"running","template":0,"maxdisk":17179869184,"name":"lieutenant","diskwrite":1442377728,"mem":499396608,"disk":0,"tags":"internal_infrastructure,client_infrastructure","vmid":103,"diskread":694665918,"maxmem":734003200},{"mem":509480960,"tags":"client_infrastructure;internal_infrastructure","disk":0,"vmid":104,"maxmem":1073741824,"diskread":303534782,"maxdisk":17179869184,"diskwrite":4680962048,"name":"private","node":"olympus","netout":113434836,"uptime":518588,"status":"running","template":0,"maxcpu":1,"id":"qemu/104","type":"qemu","cpu":0.00864323006697365,"netin":270648873},{"template":0,"status":"running","uptime":518583,"netout":960725002,"node":"olympus","netin":2046118661,"cpu":0.0475377653683551,"type":"qemu","id":"qemu/105","maxcpu":2,"diskread":530259456,"maxmem":2147483648,"vmid":105,"disk":0,"tags":"personal_infra","mem":1901416448,"name":"jarvis","diskwrite":12767011840,"maxdisk":34359738368},{"netin":21797749020,"cpu":0.714987198317987,"type":"qemu","id":"qemu/106","maxcpu":2,"template":0,"status":"running","uptime":257651,"node":"olympus","netout":6165791662,"name":"nextcloud","diskwrite":7622643712,"maxdisk":34359738368,"diskread":5249118878,"maxmem":4404019200,"vmid":106,"disk":0,"tags":"personal_infra","mem":2657009664},{"id":"lxc/107","maxcpu":2,"cpu":0.020930593079405,"netin":281703598,"type":"lxc","status":"running","node":"asguard","netout":6564234,"uptime":518085,"template":0,"diskwrite":455794688,"name":"pandora","maxdisk":12615557120,"disk":7099682816,"tags":"personal_infra","mem":658751488,"maxmem":4299161600,"diskread":4747415552,"vmid":107},{"maxcpu":2,"id":"lxc/108","type":"lxc","netin":0,"cpu":0,"uptime":0,"netout":0,"node":"asguard","status":"stopped","template":0,"maxdisk":8589934592,"name":"codium","diskwrite":0,"mem":0,"disk":0,"tags":"personal_infra","vmid":108,"diskread":0,"maxmem":2202009600},{"status":"running","uptime":518598,"node":"asguard","netout":384552240,"template":0,"id":"qemu/109","maxcpu":1,"netin":546171213,"cpu":0.00848672845928648,"type":"qemu","disk":0,"tags":"internal_infrastructure,client_infrastructure","mem":397828096,"diskread":216941246,"maxmem":536870912,"vmid":109,"name":"vpn","diskwrite":1492566016,"maxdisk":34359738368},{"maxcpu":2,"id":"lxc/110","type":"lxc","netin":213351772,"cpu":0.0271146319437747,"uptime":518585,"netout":31162411,"node":"asguard","status":"running","template":0,"maxdisk":8388009984,"name":"arhost-haproxy","diskwrite":108773376,"mem":523280384,"tags":"client_infrastructure","disk":1016786944,"vmid":110,"diskread":201572352,"maxmem":2202009600},{"vmid":111,"maxmem":8493465600,"diskread":1217819136,"mem":2217840640,"disk":0,"tags":"client_infrastructure","maxdisk":10737418240,"diskwrite":2596295680,"name":"Updater","template":0,"node":"olympus","netout":116418388,"uptime":69270,"status":"running","type":"qemu","cpu":0.00408152530940422,"netin":181908112,"maxcpu":4,"id":"qemu/111"},{"template":0,"netout":114787378,"node":"asguard","uptime":518605,"status":"running","type":"qemu","cpu":0.0124804830283625,"netin":346187923,"hastate":"started","maxcpu":1,"id":"qemu/200","vmid":200,"maxmem":536870912,"diskread":350003712,"mem":473534464,"disk":0,"tags":"internal_infrastructure,client_infrastructure","maxdisk":26843545600,"diskwrite":747954176,"name":"openldap"},{"maxcpu":2,"id":"qemu/9000","type":"qemu","cpu":0,"netin":0,"netout":0,"node":"olympus","uptime":0,"status":"stopped","template":1,"maxdisk":10737418240,"diskwrite":0,"name":"Dedicated-Image","mem":0,"disk":0,"tags":"client;client_infrastructure;stable","vmid":9000,"maxmem":4294967296,"diskread":0}]}
+[90mSun, 18 Jun 2023 19:05:23 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:155[0m[36m >[0m Enabling the capture of log-library logs as ithe _capturelog flag was detected
+[90mSun, 18 Jun 2023 19:05:23 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:188[0m[36m >[0m Logging Started. Root Logger Set to level debug
+2023/06/18 19:05:23 [DEBUG] setting computed for "unused_disk" from ComputedKeys
+[90mSun, 18 Jun 2023 19:05:23 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:693[0m[36m >[0m Invoking VM create with resource data:  '{"additional_wait":0,"agent":1,"args":"","automatic_reboot":true,"balloon":0,"bios":"seabios","boot":"c","bootdisk":"scsi0","bridge":"","ci_wait":0,"cicustom":"","cipassword":"","ciuser":"","clone":"Dedicated-Image","clone_wait":0,"cloudinit_cdrom_storage":"","cores":1,"cpu":"host","default_ipv4_address":"","define_connection_info":true,"desc":"","disk":[{"aio":"","backup":0,"cache":"none","discard":"","file":"","format":"","iothread":1,"mbps":0,"mbps_rd":0,"mbps_rd_max":0,"mbps_wr":0,"mbps_wr_max":0,"media":"","replicate":0,"size":"10G","slot":0,"ssd":0,"storage":"local-lvm","storage_type":"","type":"scsi","volume":""}],"disk_gb":0,"force_create":false,"force_recreate_on_change_of":"","full_clone":true,"guest_agent_ready_timeout":100,"hagroup":"","hastate":"","hotplug":"network,disk,usb","ipconfig0":"ip=10.1.0.101/24,gw=10.1.0.1","ipconfig1":"","ipconfig2":"","ipconfig3":"","ipconfig4":"","ipconfig5":"","iso":"","kvm":true,"mac":"","memory":1100,"name":"Artisan-Demo","nameserver":"","network":[{"bridge":"vmbr0","firewall":false,"link_down":false,"macaddr":"","model":"virtio","queues":0,"rate":0,"tag":-1}],"nic":"","numa":false,"onboot":false,"oncreate":true,"os_network_config":"","os_type":"cloud-init","pool":"","preprovision":true,"qemu_os":"","reboot_required":false,"scsihw":"virtio-scsi-single","searchdomain":"","serial":[],"sockets":1,"ssh_forward_ip":"","ssh_host":"","ssh_port":"","ssh_private_key":"","ssh_user":"","sshkeys":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDVQaQdpM8JWRM09WGVecCmahGzerVMdqHisAdGnIJ7tgv/sSdLQF7Vw85k5hiLt6X6YZ/PThvZ4ELlt0DVI2Rq+eVFFFo0k5XlVOlv5z1R1NG0b+sZLQZ6wjx9rhlChimrnK3P09o5Qq17SPOQsV/4rv/sMaz+lXOOral+PXpdYFdz9vPIM5Jm9nOwyap9TF+WB7jDn02BPL6/OPA7qfc1QUwLaZgnTZ+QxRDR7hbC6OTcWAKxPfSaxOnX0eGjgI8YeTYGY6kmyp4xylBNP5dR5AFnz9jlVgTrKnNsQtHRrseOvJPdzcbT5Lf58D0LTfj7Lu6wYxt9KJd/KZWSVPPsRXBQArxvArk4NLvAdXJi+uUm5cW6l+3k1BjvTBQi+hvveHWfwgOHRfKfRDHdlwNKDgUnt1fRMZmJb5eo03dp62sRbduW/h8SSi9MF2WMjUKytJNSqmDKjYfzhkrBEBzAXtnOtsfCHySSxOMwmdak4S+rC906ESwC0ws7dcKUuwc= dwhitfield@Archhome","storage":"","storage_type":"","tablet":true,"tags":"","target_node":"olympus","unused_disk":[],"vcpus":0,"vga":[],"vlan":-1,"vmid":0}' [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2023/06/18 19:05:23 [DEBUG][QemuVmCreate] checking for duplicate name: Artisan-Demo
+2023/06/18 19:05:23 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:23 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 4750
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:23 GMT
+Expires: Mon, 19 Jun 2023 00:05:23 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[{"template":0,"node":"olympus","netout":3651931519,"uptime":513569,"status":"running","type":"qemu","cpu":0.0643440460541372,"netin":3643426834,"maxcpu":1,"id":"qemu/100","vmid":100,"maxmem":2147483648,"diskread":23388160,"mem":1132535808,"disk":0,"maxdisk":34359738368,"diskwrite":1909345792,"name":"haproxy"},{"vmid":101,"maxmem":4299161600,"diskread":739371008,"mem":1366122496,"disk":0,"tags":"client_infrastructure;internal_infrastructure;personal_infra","maxdisk":68719476736,"diskwrite":51686659072,"name":"database","template":0,"node":"olympus","netout":41729323778,"uptime":518599,"status":"running","type":"qemu","cpu":0.148855628931213,"netin":8247019706,"maxcpu":2,"id":"qemu/101"},{"id":"qemu/102","maxcpu":2,"cpu":0,"netin":0,"type":"qemu","status":"stopped","node":"olympus","netout":0,"uptime":0,"template":0,"diskwrite":0,"name":"Theaseus","maxdisk":10737418240,"disk":0,"tags":"client;client_infrastructure;development","mem":0,"maxmem":4294967296,"diskread":0,"vmid":102},{"maxcpu":1,"id":"qemu/103","type":"qemu","netin":453558866,"cpu":0.0219656501299179,"uptime":518614,"node":"asguard","netout":190836123,"status":"running","template":0,"maxdisk":17179869184,"name":"lieutenant","diskwrite":1442406400,"mem":499363840,"disk":0,"tags":"internal_infrastructure,client_infrastructure","vmid":103,"diskread":694665918,"maxmem":734003200},{"status":"running","uptime":518588,"node":"olympus","netout":113434836,"template":0,"id":"qemu/104","maxcpu":1,"netin":270648873,"cpu":0.00864323006697365,"type":"qemu","disk":0,"tags":"client_infrastructure;internal_infrastructure","mem":509480960,"diskread":303534782,"maxmem":1073741824,"vmid":104,"name":"private","diskwrite":4680962048,"maxdisk":17179869184},{"template":0,"uptime":518583,"node":"olympus","netout":960725002,"status":"running","type":"qemu","netin":2046118661,"cpu":0.0475377653683551,"maxcpu":2,"id":"qemu/105","vmid":105,"diskread":530259456,"maxmem":2147483648,"mem":1901416448,"disk":0,"tags":"personal_infra","maxdisk":34359738368,"name":"jarvis","diskwrite":12767011840},{"name":"nextcloud","diskwrite":7622643712,"maxdisk":34359738368,"tags":"personal_infra","disk":0,"mem":2657009664,"diskread":5249118878,"maxmem":4404019200,"vmid":106,"id":"qemu/106","maxcpu":2,"netin":21797749020,"cpu":0.714987198317987,"type":"qemu","status":"running","uptime":257651,"netout":6165791662,"node":"olympus","template":0},{"vmid":107,"maxmem":4299161600,"diskread":4747415552,"mem":658763776,"tags":"personal_infra","disk":7099682816,"maxdisk":12615557120,"diskwrite":455794688,"name":"pandora","template":0,"node":"asguard","netout":6564318,"uptime":518094,"status":"running","type":"lxc","cpu":0.00210645605842586,"netin":281707059,"maxcpu":2,"id":"lxc/107"},{"disk":0,"tags":"personal_infra","mem":0,"maxmem":2202009600,"diskread":0,"vmid":108,"diskwrite":0,"name":"codium","maxdisk":8589934592,"status":"stopped","node":"asguard","netout":0,"uptime":0,"template":0,"id":"lxc/108","maxcpu":2,"cpu":0,"netin":0,"type":"lxc"},{"template":0,"status":"running","netout":384552564,"node":"asguard","uptime":518607,"cpu":0.00848672845928648,"netin":546174858,"type":"qemu","id":"qemu/109","maxcpu":1,"maxmem":536870912,"diskread":216941246,"vmid":109,"tags":"internal_infrastructure,client_infrastructure","disk":0,"mem":397828096,"diskwrite":1492586496,"name":"vpn","maxdisk":34359738368},{"diskwrite":108806144,"name":"arhost-haproxy","maxdisk":8388009984,"disk":1016799232,"tags":"client_infrastructure","mem":508891136,"maxmem":2202009600,"diskread":201572352,"vmid":110,"id":"lxc/110","maxcpu":2,"cpu":0.00579275416067112,"netin":213361189,"type":"lxc","status":"running","netout":31168324,"node":"asguard","uptime":518594,"template":0},{"vmid":111,"diskread":1217819136,"maxmem":8493465600,"mem":2217840640,"tags":"client_infrastructure","disk":0,"maxdisk":10737418240,"name":"Updater","diskwrite":2596295680,"template":0,"uptime":69270,"node":"olympus","netout":116418388,"status":"running","type":"qemu","netin":181908112,"cpu":0.00408152530940422,"maxcpu":4,"id":"qemu/111"},{"template":0,"status":"running","uptime":518614,"netout":114787738,"node":"asguard","netin":346192266,"cpu":0.0124804830283625,"type":"qemu","id":"qemu/200","maxcpu":1,"hastate":"started","diskread":350003712,"maxmem":536870912,"vmid":200,"tags":"internal_infrastructure,client_infrastructure","disk":0,"mem":473509888,"name":"openldap","diskwrite":747954176,"maxdisk":26843545600},{"node":"olympus","netout":0,"uptime":0,"status":"stopped","template":1,"maxcpu":2,"id":"qemu/9000","type":"qemu","cpu":0,"netin":0,"mem":0,"disk":0,"tags":"client;client_infrastructure;stable","vmid":9000,"maxmem":4294967296,"diskread":0,"maxdisk":10737418240,"diskwrite":0,"name":"Dedicated-Image"}]}
+2023/06/18 19:05:23 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/nextid HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:23 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 14
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:23 GMT
+Expires: Mon, 19 Jun 2023 00:05:23 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":"112"}
+2023/06/18 19:05:23 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:23 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 4750
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:23 GMT
+Expires: Mon, 19 Jun 2023 00:05:23 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[{"status":"running","uptime":513569,"netout":3651931519,"node":"olympus","template":0,"id":"qemu/100","maxcpu":1,"netin":3643426834,"cpu":0.0643440460541372,"type":"qemu","disk":0,"mem":1132535808,"diskread":23388160,"maxmem":2147483648,"vmid":100,"name":"haproxy","diskwrite":1909345792,"maxdisk":34359738368},{"diskwrite":51686659072,"name":"database","maxdisk":68719476736,"maxmem":4299161600,"diskread":739371008,"vmid":101,"tags":"client_infrastructure;internal_infrastructure;personal_infra","disk":0,"mem":1366122496,"cpu":0.148855628931213,"netin":8247019706,"type":"qemu","id":"qemu/101","maxcpu":2,"template":0,"status":"running","netout":41729323778,"node":"olympus","uptime":518599},{"uptime":0,"netout":0,"node":"olympus","status":"stopped","template":0,"maxcpu":2,"id":"qemu/102","type":"qemu","netin":0,"cpu":0,"mem":0,"disk":0,"tags":"client;client_infrastructure;development","vmid":102,"diskread":0,"maxmem":4294967296,"maxdisk":10737418240,"name":"Theaseus","diskwrite":0},{"maxdisk":17179869184,"diskwrite":1442406400,"name":"lieutenant","vmid":103,"maxmem":734003200,"diskread":694665918,"mem":499363840,"disk":0,"tags":"internal_infrastructure,client_infrastructure","type":"qemu","cpu":0.0219656501299179,"netin":453558866,"maxcpu":1,"id":"qemu/103","template":0,"node":"asguard","netout":190836123,"uptime":518614,"status":"running"},{"disk":0,"tags":"client_infrastructure;internal_infrastructure","mem":509480960,"maxmem":1073741824,"diskread":303534782,"vmid":104,"diskwrite":4680962048,"name":"private","maxdisk":17179869184,"status":"running","netout":113434836,"node":"olympus","uptime":518588,"template":0,"id":"qemu/104","maxcpu":1,"cpu":0.00864323006697365,"netin":270648873,"type":"qemu"},{"name":"jarvis","diskwrite":12767011840,"maxdisk":34359738368,"diskread":530259456,"maxmem":2147483648,"vmid":105,"tags":"personal_infra","disk":0,"mem":1901416448,"netin":2046118661,"cpu":0.0475377653683551,"type":"qemu","id":"qemu/105","maxcpu":2,"template":0,"status":"running","uptime":518583,"node":"olympus","netout":960725002},{"type":"qemu","netin":21797749020,"cpu":0.714987198317987,"maxcpu":2,"id":"qemu/106","template":0,"uptime":257651,"node":"olympus","netout":6165791662,"status":"running","maxdisk":34359738368,"name":"nextcloud","diskwrite":7622643712,"vmid":106,"diskread":5249118878,"maxmem":4404019200,"mem":2657009664,"disk":0,"tags":"personal_infra"},{"disk":7099682816,"tags":"personal_infra","mem":658763776,"maxmem":4299161600,"diskread":4747415552,"vmid":107,"diskwrite":455794688,"name":"pandora","maxdisk":12615557120,"status":"running","node":"asguard","netout":6564318,"uptime":518094,"template":0,"id":"lxc/107","maxcpu":2,"cpu":0.00210645605842586,"netin":281707059,"type":"lxc"},{"type":"lxc","netin":0,"cpu":0,"maxcpu":2,"id":"lxc/108","template":0,"uptime":0,"netout":0,"node":"asguard","status":"stopped","maxdisk":8589934592,"name":"codium","diskwrite":0,"vmid":108,"diskread":0,"maxmem":2202009600,"mem":0,"tags":"personal_infra","disk":0},{"name":"vpn","diskwrite":1492586496,"maxdisk":34359738368,"tags":"internal_infrastructure,client_infrastructure","disk":0,"mem":397828096,"diskread":216941246,"maxmem":536870912,"vmid":109,"id":"qemu/109","maxcpu":1,"netin":546174858,"cpu":0.00848672845928648,"type":"qemu","status":"running","uptime":518607,"netout":384552564,"node":"asguard","template":0},{"vmid":110,"diskread":201572352,"maxmem":2202009600,"mem":508891136,"tags":"client_infrastructure","disk":1016799232,"maxdisk":8388009984,"name":"arhost-haproxy","diskwrite":108806144,"template":0,"uptime":518594,"node":"asguard","netout":31168324,"status":"running","type":"lxc","netin":213361189,"cpu":0.00579275416067112,"maxcpu":2,"id":"lxc/110"},{"type":"qemu","cpu":0.00408152530940422,"netin":181908112,"maxcpu":4,"id":"qemu/111","template":0,"node":"olympus","netout":116418388,"uptime":69270,"status":"running","maxdisk":10737418240,"diskwrite":2596295680,"name":"Updater","vmid":111,"maxmem":8493465600,"diskread":1217819136,"mem":2217840640,"disk":0,"tags":"client_infrastructure"},{"id":"qemu/200","maxcpu":1,"hastate":"started","cpu":0.0124804830283625,"netin":346192266,"type":"qemu","status":"running","node":"asguard","netout":114787738,"uptime":518614,"template":0,"diskwrite":747954176,"name":"openldap","maxdisk":26843545600,"tags":"internal_infrastructure,client_infrastructure","disk":0,"mem":473509888,"maxmem":536870912,"diskread":350003712,"vmid":200},{"diskwrite":0,"name":"Dedicated-Image","maxdisk":10737418240,"disk":0,"tags":"client;client_infrastructure;stable","mem":0,"maxmem":4294967296,"diskread":0,"vmid":9000,"id":"qemu/9000","maxcpu":2,"cpu":0,"netin":0,"type":"qemu","status":"stopped","netout":0,"node":"olympus","uptime":0,"template":1}]}
+2023/06/18 19:05:23 [DEBUG][QemuVmCreate] cloning VM
+2023/06/18 19:05:23 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/olympus/qemu/9000/clone HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Content-Length: 67
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+full=1&name=Artisan-Demo&newid=112&storage=local-lvm&target=olympus
+2023/06/18 19:05:23 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 96
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:23 GMT
+Expires: Mon, 19 Jun 2023 00:05:23 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:"}
+2023/06/18 19:05:23 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:23 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:23 GMT
+Expires: Mon, 19 Jun 2023 00:05:23 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"pid":1621076,"starttime":1687133123,"id":"9000","type":"qmclone","status":"running","node":"olympus","user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform"}}
+2023/06/18 19:05:25 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:25 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:25 GMT
+Expires: Mon, 19 Jun 2023 00:05:25 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"starttime":1687133123,"pid":1621076,"id":"9000","status":"running","type":"qmclone","node":"olympus","user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform"}}
+2023/06/18 19:05:27 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:27 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:27 GMT
+Expires: Mon, 19 Jun 2023 00:05:27 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","pstart":51863876,"user":"terraform@mother_land","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","status":"running","type":"qmclone","node":"olympus","starttime":1687133123,"pid":1621076,"id":"9000"}}
+2023/06/18 19:05:29 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:29 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:29 GMT
+Expires: Mon, 19 Jun 2023 00:05:29 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"pid":1621076,"starttime":1687133123,"id":"9000","type":"qmclone","status":"running","node":"olympus","user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform"}}
+2023/06/18 19:05:31 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:31 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:31 GMT
+Expires: Mon, 19 Jun 2023 00:05:31 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","pstart":51863876,"user":"terraform@mother_land","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","status":"running","type":"qmclone","node":"olympus","starttime":1687133123,"pid":1621076,"id":"9000"}}
+2023/06/18 19:05:33 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:33 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:33 GMT
+Expires: Mon, 19 Jun 2023 00:05:33 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform","starttime":1687133123,"pid":1621076,"id":"9000","status":"running","type":"qmclone","node":"olympus"}}
+2023/06/18 19:05:35 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:35 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:35 GMT
+Expires: Mon, 19 Jun 2023 00:05:35 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"pid":1621076,"starttime":1687133123,"id":"9000","type":"qmclone","status":"running","node":"olympus","user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform"}}
+2023/06/18 19:05:37 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:37 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:37 GMT
+Expires: Mon, 19 Jun 2023 00:05:37 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land","node":"olympus","status":"running","type":"qmclone","id":"9000","starttime":1687133123,"pid":1621076}}
+2023/06/18 19:05:39 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:39 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:39 GMT
+Expires: Mon, 19 Jun 2023 00:05:39 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"pstart":51863876,"user":"terraform@mother_land","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform","starttime":1687133123,"pid":1621076,"id":"9000","status":"running","type":"qmclone","node":"olympus"}}
+2023/06/18 19:05:41 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:41 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:41 GMT
+Expires: Mon, 19 Jun 2023 00:05:41 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land","node":"olympus","type":"qmclone","status":"running","id":"9000","pid":1621076,"starttime":1687133123}}
+2023/06/18 19:05:43 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:43 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:43 GMT
+Expires: Mon, 19 Jun 2023 00:05:43 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"pstart":51863876,"user":"terraform@mother_land","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform","starttime":1687133123,"pid":1621076,"id":"9000","status":"running","type":"qmclone","node":"olympus"}}
+2023/06/18 19:05:45 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:45 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:45 GMT
+Expires: Mon, 19 Jun 2023 00:05:45 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform","starttime":1687133123,"pid":1621076,"id":"9000","status":"running","type":"qmclone","node":"olympus"}}
+2023/06/18 19:05:47 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:47 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:47 GMT
+Expires: Mon, 19 Jun 2023 00:05:47 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"starttime":1687133123,"pid":1621076,"id":"9000","status":"running","type":"qmclone","node":"olympus","user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform"}}
+2023/06/18 19:05:49 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:49 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:49 GMT
+Expires: Mon, 19 Jun 2023 00:05:49 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","user":"terraform@mother_land","pstart":51863876,"node":"olympus","status":"running","type":"qmclone","id":"9000","starttime":1687133123,"pid":1621076}}
+2023/06/18 19:05:51 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:51 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:51 GMT
+Expires: Mon, 19 Jun 2023 00:05:51 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land","tokenid":"terraform","id":"9000","starttime":1687133123,"pid":1621076,"node":"olympus","status":"running","type":"qmclone"}}
+2023/06/18 19:05:53 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:53 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:53 GMT
+Expires: Mon, 19 Jun 2023 00:05:53 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"type":"qmclone","status":"running","node":"olympus","pid":1621076,"starttime":1687133123,"id":"9000","tokenid":"terraform","pstart":51863876,"user":"terraform@mother_land","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:"}}
+2023/06/18 19:05:55 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:55 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:55 GMT
+Expires: Mon, 19 Jun 2023 00:05:55 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform","starttime":1687133123,"pid":1621076,"id":"9000","status":"running","type":"qmclone","node":"olympus"}}
+2023/06/18 19:05:57 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:57 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:57 GMT
+Expires: Mon, 19 Jun 2023 00:05:57 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"id":"9000","starttime":1687133123,"pid":1621076,"node":"olympus","status":"running","type":"qmclone","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land","tokenid":"terraform"}}
+2023/06/18 19:05:59 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:05:59 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:05:59 GMT
+Expires: Mon, 19 Jun 2023 00:05:59 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","user":"terraform@mother_land","pstart":51863876,"node":"olympus","type":"qmclone","status":"running","id":"9000","pid":1621076,"starttime":1687133123}}
+2023/06/18 19:06:01 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:01 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:01 GMT
+Expires: Mon, 19 Jun 2023 00:06:01 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","tokenid":"terraform","starttime":1687133123,"pid":1621076,"id":"9000","status":"running","type":"qmclone","node":"olympus"}}
+2023/06/18 19:06:03 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:03 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:03 GMT
+Expires: Mon, 19 Jun 2023 00:06:03 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land","node":"olympus","status":"running","type":"qmclone","id":"9000","starttime":1687133123,"pid":1621076}}
+2023/06/18 19:06:05 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:05 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:05 GMT
+Expires: Mon, 19 Jun 2023 00:06:05 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"status":"running","type":"qmclone","node":"olympus","starttime":1687133123,"pid":1621076,"id":"9000","tokenid":"terraform","user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:"}}
+2023/06/18 19:06:07 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:07 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:07 GMT
+Expires: Mon, 19 Jun 2023 00:06:07 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","user":"terraform@mother_land","pstart":51863876,"node":"olympus","status":"running","type":"qmclone","id":"9000","starttime":1687133123,"pid":1621076}}
+2023/06/18 19:06:09 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:09 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:09 GMT
+Expires: Mon, 19 Jun 2023 00:06:09 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","status":"running","type":"qmclone","node":"olympus","starttime":1687133123,"pid":1621076,"id":"9000"}}
+2023/06/18 19:06:11 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:11 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:11 GMT
+Expires: Mon, 19 Jun 2023 00:06:11 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","user":"terraform@mother_land","pstart":51863876,"tokenid":"terraform","id":"9000","starttime":1687133123,"pid":1621076,"node":"olympus","status":"running","type":"qmclone"}}
+2023/06/18 19:06:13 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:13 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:13 GMT
+Expires: Mon, 19 Jun 2023 00:06:13 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land","tokenid":"terraform","id":"9000","pid":1621076,"starttime":1687133123,"node":"olympus","type":"qmclone","status":"running"}}
+2023/06/18 19:06:15 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:15 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:15 GMT
+Expires: Mon, 19 Jun 2023 00:06:15 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"node":"olympus","type":"qmclone","status":"running","id":"9000","pid":1621076,"starttime":1687133123,"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land"}}
+2023/06/18 19:06:17 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:17 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:17 GMT
+Expires: Mon, 19 Jun 2023 00:06:17 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","user":"terraform@mother_land","pstart":51863876,"tokenid":"terraform","id":"9000","starttime":1687133123,"pid":1621076,"node":"olympus","status":"running","type":"qmclone"}}
+2023/06/18 19:06:19 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:19 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:19 GMT
+Expires: Mon, 19 Jun 2023 00:06:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"status":"running","type":"qmclone","node":"olympus","starttime":1687133123,"pid":1621076,"id":"9000","tokenid":"terraform","user":"terraform@mother_land","pstart":51863876,"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:"}}
+2023/06/18 19:06:21 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:21 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:21 GMT
+Expires: Mon, 19 Jun 2023 00:06:21 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land","node":"olympus","type":"qmclone","status":"running","id":"9000","pid":1621076,"starttime":1687133123}}
+2023/06/18 19:06:23 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:23 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:23 GMT
+Expires: Mon, 19 Jun 2023 00:06:23 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","pstart":51863876,"user":"terraform@mother_land","node":"olympus","type":"qmclone","status":"running","id":"9000","pid":1621076,"starttime":1687133123}}
+2023/06/18 19:06:25 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:25 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:25 GMT
+Expires: Mon, 19 Jun 2023 00:06:25 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","pstart":51863876,"user":"terraform@mother_land","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","status":"running","type":"qmclone","node":"olympus","starttime":1687133123,"pid":1621076,"id":"9000"}}
+2023/06/18 19:06:27 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:27 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:27 GMT
+Expires: Mon, 19 Jun 2023 00:06:27 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","user":"terraform@mother_land","pstart":51863876,"tokenid":"terraform","id":"9000","starttime":1687133123,"pid":1621076,"node":"olympus","status":"running","type":"qmclone"}}
+2023/06/18 19:06:29 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:29 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 296
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:29 GMT
+Expires: Mon, 19 Jun 2023 00:06:29 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"id":"9000","starttime":1687133123,"pid":1621076,"node":"olympus","status":"stopped","type":"qmclone","upid":"UPID:olympus:0018BC54:03176144:648F9BC3:qmclone:9000:terraform@mother_land!terraform:","user":"terraform@mother_land","pstart":51863876,"tokenid":"terraform","exitstatus":"OK"}}
+2023/06/18 19:06:59 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/qemu/112/config HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:06:59 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 613
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:06:59 GMT
+Expires: Mon, 19 Jun 2023 00:06:59 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"memory":4096,"cores":2,"scsihw":"virtio-scsi-single","meta":"creation-qemu=7.2.0,ctime=1686359922","rng0":"max_bytes=4096,source=/dev/urandom","digest":"11ccdb9422e1d5d32ecb19e4bbf87357b0b845a2","net0":"virtio=06:A8:B3:D6:23:08,bridge=vmbr0,firewall=1","smbios1":"uuid=37a4353d-a6aa-4511-aa1c-112c18a2270f","onboot":1,"scsi0":"local-lvm:vm-112-disk-0,iothread=1,size=10G","description":"Stable Diffusion","name":"Artisan-Demo","ostype":"l26","agent":"1","vmgenid":"7a8c1848-46ff-485f-ae94-03e572633550","boot":"order=scsi0","numa":0,"tags":"client;client_infrastructure;stable","vga":"qxl","sockets":1}}
+2023/06/18 19:06:59 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/storage/local-lvm/content HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:00 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1130
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:00 GMT
+Expires: Mon, 19 Jun 2023 00:07:00 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[{"volid":"local-lvm:base-9000-disk-0","content":"images","ctime":"1687132914","vmid":9000,"size":10737418240,"format":"raw"},{"format":"raw","size":34359738368,"vmid":100,"ctime":"1686603934","content":"images","volid":"local-lvm:vm-100-disk-0"},{"ctime":"1685155051","vmid":101,"volid":"local-lvm:vm-101-disk-0","content":"images","format":"raw","size":4194304},{"size":68719476736,"format":"raw","volid":"local-lvm:vm-101-disk-1","content":"images","ctime":"1686603767","vmid":101},{"ctime":"1687132531","vmid":102,"volid":"local-lvm:vm-102-disk-0","content":"images","format":"raw","size":10737418240},{"format":"raw","size":9114222592,"vmid":102,"ctime":"1687131980","content":"images","volid":"local-lvm:vm-102-state-cloud-image-v1-81"},{"format":"raw","size":9114222592,"vmid":102,"ctime":"1687132847","content":"images","volid":"local-lvm:vm-102-state-cloud-image-v2-0"},{"ctime":"1686603842","vmid":104,"volid":"local-lvm:vm-104-disk-0","content":"images","format":"raw","size":17179869184},{"size":10737418240,"format":"raw","volid":"local-lvm:vm-112-disk-0","content":"images","ctime":"1687133124","vmid":112}]}
+2023/06/18 19:07:00 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/storage/local-lvm/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:00 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 149
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:00 GMT
+Expires: Mon, 19 Jun 2023 00:07:00 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"total":179197444096,"avail":31467071184,"content":"rootdir,images","enabled":1,"shared":0,"active":1,"type":"lvmthin","used":147730372912}}
+[90mSun, 18 Jun 2023 19:07:00 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:828[0m[36m >[0m Original disks: 'map[0:map[aio: backup:0 cache:none discard: file: format: iothread:1 mbps:0 mbps_rd:0 mbps_rd_max:0 mbps_wr:0 mbps_wr_max:0 media: replicate:0 size:10G slot:0 ssd:0 storage:local-lvm storage_type: type:scsi volume:]]', Clone Disks 'map[0:map[file:vm-112-disk-0 format:raw iothread:1 size:10G slot:0 storage:local-lvm storage_type:lvmthin type:scsi volume:local-lvm:vm-112-disk-0]]' [36mloggerName=[0mresource_vm_create [36mvmid=[0m
+2023/06/18 19:07:00 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/olympus/qemu/112/config HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Content-Length: 1052
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip
+
+agent=1&bios=seabios&boot=c&bootdisk=scsi0&cores=1&cpu=host&delete=balloon%2C+vcpus%2C+vga&hotplug=network%2Cdisk%2Cusb&ipconfig0=ip%3D10.1.0.101%2F24%2Cgw%3D10.1.0.1&kvm=1&memory=1100&name=Artisan-Demo&net0=virtio%3D4A%3AA6%3A1A%3A34%3A56%3AA5%2Cbridge%3Dvmbr0&numa=0&onboot=0&scsi0=local-lvm%3Avm-112-disk-0%2Csize%3D10G%2Ciothread%3D1&scsihw=virtio-scsi-single&sockets=1&sshkeys=ssh-rsa%2520AAAAB3NzaC1yc2EAAAADAQABAAABgQDVQaQdpM8JWRM09WGVecCmahGzerVMdqHisAdGnIJ7tgv%252FsSdLQF7Vw85k5hiLt6X6YZ%252FPThvZ4ELlt0DVI2Rq%252BeVFFFo0k5XlVOlv5z1R1NG0b%252BsZLQZ6wjx9rhlChimrnK3P09o5Qq17SPOQsV%252F4rv%252FsMaz%252BlXOOral%252BPXpdYFdz9vPIM5Jm9nOwyap9TF%252BWB7jDn02BPL6%252FOPA7qfc1QUwLaZgnTZ%252BQxRDR7hbC6OTcWAKxPfSaxOnX0eGjgI8YeTYGY6kmyp4xylBNP5dR5AFnz9jlVgTrKnNsQtHRrseOvJPdzcbT5Lf58D0LTfj7Lu6wYxt9KJd%252FKZWSVPPsRXBQArxvArk4NLvAdXJi%252BuUm5cW6l%252B3k1BjvTBQi%252BhvveHWfwgOHRfKfRDHdlwNKDgUnt1fRMZmJb5eo03dp62sRbduW%252Fh8SSi9MF2WMjUKytJNSqmDKjYfzhkrBEBzAXtnOtsfCHySSxOMwmdak4S%252BrC906ESwC0ws7dcKUuwc%253D%2520dwhitfield%2540Archhome%250A&tablet=1
+2023/06/18 19:07:00 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 96
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:00 GMT
+Expires: Mon, 19 Jun 2023 00:07:00 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":"UPID:olympus:0018BDC3:03178756:648F9C24:qmconfig:112:terraform@mother_land!terraform:"}
+2023/06/18 19:07:00 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BDC3:03178756:648F9C24:qmconfig:112:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:00 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 278
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:00 GMT
+Expires: Mon, 19 Jun 2023 00:07:00 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"upid":"UPID:olympus:0018BDC3:03178756:648F9C24:qmconfig:112:terraform@mother_land!terraform:","pstart":51873622,"user":"terraform@mother_land","tokenid":"terraform","id":"112","pid":1621443,"starttime":1687133220,"node":"olympus","type":"qmconfig","status":"running"}}
+2023/06/18 19:07:02 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BDC3:03178756:648F9C24:qmconfig:112:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:02 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 296
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:02 GMT
+Expires: Mon, 19 Jun 2023 00:07:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"tokenid":"terraform","exitstatus":"OK","upid":"UPID:olympus:0018BDC3:03178756:648F9C24:qmconfig:112:terraform@mother_land!terraform:","pstart":51873622,"user":"terraform@mother_land","node":"olympus","status":"stopped","type":"qmconfig","id":"112","starttime":1687133220,"pid":1621443}}
+2023/06/18 19:07:02 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/qemu/112/config HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:02 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1350
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:02 GMT
+Expires: Mon, 19 Jun 2023 00:07:02 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"scsihw":"virtio-scsi-single","cores":1,"meta":"creation-qemu=7.2.0,ctime=1686359922","kvm":1,"cpu":"host","memory":1100,"onboot":0,"net0":"virtio=4A:A6:1A:34:56:A5,bridge=vmbr0","smbios1":"uuid=37a4353d-a6aa-4511-aa1c-112c18a2270f","rng0":"max_bytes=4096,source=/dev/urandom","bios":"seabios","digest":"133e9d1999f854828854a375a4032a38cb3cd869","description":"Stable Diffusion","scsi0":"local-lvm:vm-112-disk-0,iothread=1,size=10G","bootdisk":"scsi0","sockets":1,"hotplug":"network,disk,usb","sshkeys":"ssh-rsa%20AAAAB3NzaC1yc2EAAAADAQABAAABgQDVQaQdpM8JWRM09WGVecCmahGzerVMdqHisAdGnIJ7tgv%2FsSdLQF7Vw85k5hiLt6X6YZ%2FPThvZ4ELlt0DVI2Rq%2BeVFFFo0k5XlVOlv5z1R1NG0b%2BsZLQZ6wjx9rhlChimrnK3P09o5Qq17SPOQsV%2F4rv%2FsMaz%2BlXOOral%2BPXpdYFdz9vPIM5Jm9nOwyap9TF%2BWB7jDn02BPL6%2FOPA7qfc1QUwLaZgnTZ%2BQxRDR7hbC6OTcWAKxPfSaxOnX0eGjgI8YeTYGY6kmyp4xylBNP5dR5AFnz9jlVgTrKnNsQtHRrseOvJPdzcbT5Lf58D0LTfj7Lu6wYxt9KJd%2FKZWSVPPsRXBQArxvArk4NLvAdXJi%2BuUm5cW6l%2B3k1BjvTBQi%2BhvveHWfwgOHRfKfRDHdlwNKDgUnt1fRMZmJb5eo03dp62sRbduW%2Fh8SSi9MF2WMjUKytJNSqmDKjYfzhkrBEBzAXtnOtsfCHySSxOMwmdak4S%2BrC906ESwC0ws7dcKUuwc%3D%20dwhitfield%40Archhome%0A","ipconfig0":"ip=10.1.0.101/24,gw=10.1.0.1","tablet":1,"numa":0,"tags":"client;client_infrastructure;stable","boot":"c","vmgenid":"7a8c1848-46ff-485f-ae94-03e572633550","agent":"1","ostype":"l26","name":"Artisan-Demo"}}
+2023/06/18 19:07:02 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/storage/local-lvm/content HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:03 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1130
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:03 GMT
+Expires: Mon, 19 Jun 2023 00:07:03 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[{"format":"raw","size":10737418240,"vmid":9000,"ctime":"1687132914","content":"images","volid":"local-lvm:base-9000-disk-0"},{"volid":"local-lvm:vm-100-disk-0","content":"images","ctime":"1686603934","vmid":100,"size":34359738368,"format":"raw"},{"format":"raw","size":4194304,"ctime":"1685155051","vmid":101,"volid":"local-lvm:vm-101-disk-0","content":"images"},{"format":"raw","size":68719476736,"ctime":"1686603767","vmid":101,"volid":"local-lvm:vm-101-disk-1","content":"images"},{"size":10737418240,"format":"raw","content":"images","volid":"local-lvm:vm-102-disk-0","vmid":102,"ctime":"1687132531"},{"size":9114222592,"format":"raw","volid":"local-lvm:vm-102-state-cloud-image-v1-81","content":"images","ctime":"1687131980","vmid":102},{"size":9114222592,"format":"raw","content":"images","volid":"local-lvm:vm-102-state-cloud-image-v2-0","vmid":102,"ctime":"1687132847"},{"format":"raw","size":17179869184,"ctime":"1686603842","vmid":104,"volid":"local-lvm:vm-104-disk-0","content":"images"},{"format":"raw","size":10737418240,"ctime":"1687133124","vmid":112,"volid":"local-lvm:vm-112-disk-0","content":"images"}]}
+2023/06/18 19:07:03 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/storage/local-lvm/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:03 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 149
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:03 GMT
+Expires: Mon, 19 Jun 2023 00:07:03 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"total":179197444096,"content":"rootdir,images","avail":31467071184,"active":1,"enabled":1,"shared":0,"used":147730372912,"type":"lvmthin"}}
+[90mSun, 18 Jun 2023 19:07:03 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1514[0m[36m >[0m Checking disk sizing. Original '10', New '10' [36mdiskId=[0m0 [36mloggerName=[0mprepareDiskSize
+[90mSun, 18 Jun 2023 19:07:03 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1525[0m[36m >[0m Disk is same size as before, skipping resize. Original '10', New '10' [36mdiskId=[0m0 [36mloggerName=[0mprepareDiskSize
+[90mSun, 18 Jun 2023 19:07:03 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:892[0m[36m >[0m Set this vm (resource Id) to 'olympus/qemu/112' [36mloggerName=[0mresource_vm_create [36mvmid=[0m112
+2023/06/18 19:07:03 [DEBUG][QemuVmCreate] starting VM
+2023/06/18 19:07:03 >>>>>>>>>> REQUEST:
+POST /api2/json/nodes/olympus/qemu/112/status/start HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Content-Length: 0
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:03 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 95
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:03 GMT
+Expires: Mon, 19 Jun 2023 00:07:03 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":"UPID:olympus:0018BDD6:0317886F:648F9C27:qmstart:112:terraform@mother_land!terraform:"}
+2023/06/18 19:07:03 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BDD6:0317886F:648F9C27:qmstart:112:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:03 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 276
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:03 GMT
+Expires: Mon, 19 Jun 2023 00:07:03 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"user":"terraform@mother_land","pstart":51873903,"upid":"UPID:olympus:0018BDD6:0317886F:648F9C27:qmstart:112:terraform@mother_land!terraform:","tokenid":"terraform","starttime":1687133223,"pid":1621462,"id":"112","status":"running","type":"qmstart","node":"olympus"}}
+2023/06/18 19:07:05 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/tasks/UPID:olympus:0018BDD6:0317886F:648F9C27:qmstart:112:terraform@mother_land!terraform:/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:05 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 294
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:05 GMT
+Expires: Mon, 19 Jun 2023 00:07:05 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"node":"olympus","status":"stopped","type":"qmstart","id":"112","starttime":1687133223,"pid":1621462,"tokenid":"terraform","exitstatus":"OK","upid":"UPID:olympus:0018BDD6:0317886F:648F9C27:qmstart:112:terraform@mother_land!terraform:","pstart":51873903,"user":"terraform@mother_land"}}
+2023/06/18 19:07:05 [DEBUG][initConnInfo] trying to get vm ip address for provisioner
+2023/06/18 19:07:05 [DEBUG][initConnInfo] retrying for at most  5m0s minutes before giving up
+2023/06/18 19:07:05 [DEBUG][initConnInfo] retries will end at 2023-06-18 19:12:05.429487983 -0500 CDT m=+402.459398695
+2023/06/18 19:07:05 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/qemu/112/agent/network-get-interfaces HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:08 <<<<<<<<<< RESULT:
+HTTP/1.1 500 QEMU guest agent is not running
+Content-Length: 13
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:08 GMT
+Expires: Mon, 19 Jun 2023 00:07:08 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":null}
+2023/06/18 19:07:08 [DEBUG][initConnInfo] check ip result error 500 QEMU guest agent is not running
+2023/06/18 19:07:18 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/qemu/112/agent/network-get-interfaces HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:18 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 696
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:18 GMT
+Expires: Mon, 19 Jun 2023 00:07:18 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"result":[{"statistics":{"rx-errs":0,"tx-packets":12,"tx-dropped":0,"tx-bytes":1020,"tx-errs":0,"rx-packets":12,"rx-bytes":1020,"rx-dropped":0},"hardware-address":"00:00:00:00:00:00","name":"lo","ip-addresses":[{"ip-address-type":"ipv4","prefix":8,"ip-address":"127.0.0.1"},{"ip-address-type":"ipv6","ip-address":"::1","prefix":128}]},{"ip-addresses":[{"ip-address-type":"ipv4","prefix":24,"ip-address":"10.1.0.22"},{"ip-address-type":"ipv6","ip-address":"fe80::48a6:1aff:fe34:56a5","prefix":64}],"name":"ens18","hardware-address":"4a:a6:1a:34:56:a5","statistics":{"rx-packets":42,"tx-errs":0,"rx-dropped":0,"rx-bytes":4948,"rx-errs":0,"tx-packets":13,"tx-bytes":1572,"tx-dropped":0}}]}}
+2023/06/18 19:07:18 [DEBUG][initConnInfo] found working QEMU Agent
+2023/06/18 19:07:18 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/qemu/112/config HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:18 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1350
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:18 GMT
+Expires: Mon, 19 Jun 2023 00:07:18 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"smbios1":"uuid=37a4353d-a6aa-4511-aa1c-112c18a2270f","net0":"virtio=4A:A6:1A:34:56:A5,bridge=vmbr0","digest":"133e9d1999f854828854a375a4032a38cb3cd869","bios":"seabios","rng0":"max_bytes=4096,source=/dev/urandom","onboot":0,"cpu":"host","kvm":1,"memory":1100,"meta":"creation-qemu=7.2.0,ctime=1686359922","cores":1,"scsihw":"virtio-scsi-single","agent":"1","boot":"c","vmgenid":"7a8c1848-46ff-485f-ae94-03e572633550","ostype":"l26","name":"Artisan-Demo","sshkeys":"ssh-rsa%20AAAAB3NzaC1yc2EAAAADAQABAAABgQDVQaQdpM8JWRM09WGVecCmahGzerVMdqHisAdGnIJ7tgv%2FsSdLQF7Vw85k5hiLt6X6YZ%2FPThvZ4ELlt0DVI2Rq%2BeVFFFo0k5XlVOlv5z1R1NG0b%2BsZLQZ6wjx9rhlChimrnK3P09o5Qq17SPOQsV%2F4rv%2FsMaz%2BlXOOral%2BPXpdYFdz9vPIM5Jm9nOwyap9TF%2BWB7jDn02BPL6%2FOPA7qfc1QUwLaZgnTZ%2BQxRDR7hbC6OTcWAKxPfSaxOnX0eGjgI8YeTYGY6kmyp4xylBNP5dR5AFnz9jlVgTrKnNsQtHRrseOvJPdzcbT5Lf58D0LTfj7Lu6wYxt9KJd%2FKZWSVPPsRXBQArxvArk4NLvAdXJi%2BuUm5cW6l%2B3k1BjvTBQi%2BhvveHWfwgOHRfKfRDHdlwNKDgUnt1fRMZmJb5eo03dp62sRbduW%2Fh8SSi9MF2WMjUKytJNSqmDKjYfzhkrBEBzAXtnOtsfCHySSxOMwmdak4S%2BrC906ESwC0ws7dcKUuwc%3D%20dwhitfield%40Archhome%0A","hotplug":"network,disk,usb","sockets":1,"tags":"client;client_infrastructure;stable","tablet":1,"numa":0,"ipconfig0":"ip=10.1.0.101/24,gw=10.1.0.1","scsi0":"local-lvm:vm-112-disk-0,iothread=1,size=10G","bootdisk":"scsi0","description":"Stable Diffusion"}}
+2023/06/18 19:07:18 [DEBUG][initConnInfo] trying to find IP address of first network card
+2023/06/18 19:07:18 [DEBUG][initConnInfo] checking network card...
+2023/06/18 19:07:18 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/qemu/112/agent/network-get-interfaces HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:18 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 696
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:18 GMT
+Expires: Mon, 19 Jun 2023 00:07:18 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"result":[{"name":"lo","ip-addresses":[{"ip-address":"127.0.0.1","prefix":8,"ip-address-type":"ipv4"},{"ip-address-type":"ipv6","prefix":128,"ip-address":"::1"}],"hardware-address":"00:00:00:00:00:00","statistics":{"rx-errs":0,"tx-packets":12,"tx-bytes":1020,"tx-dropped":0,"tx-errs":0,"rx-packets":12,"rx-dropped":0,"rx-bytes":1020}},{"statistics":{"tx-packets":16,"rx-errs":0,"tx-bytes":1794,"tx-dropped":0,"tx-errs":0,"rx-packets":45,"rx-dropped":0,"rx-bytes":5332},"name":"ens18","ip-addresses":[{"ip-address-type":"ipv4","prefix":24,"ip-address":"10.1.0.22"},{"ip-address":"fe80::48a6:1aff:fe34:56a5","prefix":64,"ip-address-type":"ipv6"}],"hardware-address":"4a:a6:1a:34:56:a5"}]}}
+2023/06/18 19:07:18 [DEBUG][initConnInfo] Found IP address: 10.1.0.22
+2023/06/18 19:07:18 [DEBUG][initConnInfo] vm has a cloud-init configuration
+2023/06/18 19:07:18 [DEBUG]  found an ip configuration
+2023/06/18 19:07:18 [DEBUG][QemuVmCreate] vm creation done!
+[90mSun, 18 Jun 2023 19:07:18 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1254[0m[36m >[0m Reading configuration for vmid [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
+2023/06/18 19:07:18 >>>>>>>>>> REQUEST:
+GET /api2/json/cluster/resources?type=vm HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:18 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 5063
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:18 GMT
+Expires: Mon, 19 Jun 2023 00:07:18 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[{"diskwrite":1909552128,"name":"haproxy","maxdisk":34359738368,"disk":0,"mem":1133674496,"maxmem":2147483648,"diskread":23388160,"vmid":100,"id":"qemu/100","maxcpu":1,"cpu":0.0627889629182088,"netin":3643839891,"type":"qemu","status":"running","netout":3652340224,"node":"olympus","uptime":513688,"template":0},{"maxdisk":68719476736,"diskwrite":51693799424,"name":"database","vmid":101,"maxmem":4299161600,"diskread":739371008,"mem":1366839296,"disk":0,"tags":"client_infrastructure;internal_infrastructure;personal_infra","type":"qemu","cpu":0.0207522843543232,"netin":8251968551,"maxcpu":2,"id":"qemu/101","template":0,"node":"olympus","netout":41750166851,"uptime":518718,"status":"running"},{"template":0,"uptime":0,"node":"olympus","netout":0,"status":"stopped","type":"qemu","netin":0,"cpu":0,"maxcpu":2,"id":"qemu/102","vmid":102,"diskread":0,"maxmem":4294967296,"mem":0,"disk":0,"tags":"client;client_infrastructure;development","maxdisk":10737418240,"name":"Theaseus","diskwrite":0},{"name":"lieutenant","diskwrite":1442525184,"maxdisk":17179869184,"disk":0,"tags":"internal_infrastructure,client_infrastructure","mem":497307648,"diskread":694665918,"maxmem":734003200,"vmid":103,"id":"qemu/103","maxcpu":1,"netin":453661243,"cpu":0.0338811028312664,"type":"qemu","status":"running","uptime":518725,"netout":190876906,"node":"asguard","template":0},{"name":"private","diskwrite":4682018816,"maxdisk":17179869184,"disk":0,"tags":"client_infrastructure;internal_infrastructure","mem":509489152,"diskread":303534782,"maxmem":1073741824,"vmid":104,"id":"qemu/104","maxcpu":1,"netin":270750322,"cpu":0.00957797739430304,"type":"qemu","status":"running","uptime":518708,"node":"olympus","netout":113480025,"template":0},{"tags":"personal_infra","disk":0,"mem":1909624832,"maxmem":2147483648,"diskread":530259456,"vmid":105,"diskwrite":12771910656,"name":"jarvis","maxdisk":34359738368,"status":"running","netout":961082951,"node":"olympus","uptime":518703,"template":0,"id":"qemu/105","maxcpu":2,"cpu":0.0388440194324512,"netin":2047069332,"type":"qemu"},{"status":"running","uptime":257771,"node":"olympus","netout":6171985810,"template":0,"id":"qemu/106","maxcpu":2,"netin":21820286781,"cpu":0.533174074949536,"type":"qemu","tags":"personal_infra","disk":0,"mem":2571165696,"diskread":5249118878,"maxmem":4404019200,"vmid":106,"name":"nextcloud","diskwrite":7624019968,"maxdisk":34359738368},{"type":"lxc","cpu":0.0218050956240398,"netin":281761344,"maxcpu":2,"id":"lxc/107","template":0,"netout":6565470,"node":"asguard","uptime":518205,"status":"running","maxdisk":12615557120,"diskwrite":455794688,"name":"pandora","vmid":107,"maxmem":4299161600,"diskread":4747415552,"mem":658862080,"disk":7099682816,"tags":"personal_infra"},{"name":"codium","diskwrite":0,"maxdisk":8589934592,"diskread":0,"maxmem":2202009600,"vmid":108,"tags":"personal_infra","disk":0,"mem":0,"netin":0,"cpu":0,"type":"lxc","id":"lxc/108","maxcpu":2,"template":0,"status":"stopped","uptime":0,"node":"asguard","netout":0},{"maxdisk":34359738368,"name":"vpn","diskwrite":1492848640,"vmid":109,"diskread":216941246,"maxmem":536870912,"mem":397828096,"disk":0,"tags":"internal_infrastructure,client_infrastructure","type":"qemu","netin":546229759,"cpu":0.0084702757078166,"maxcpu":1,"id":"qemu/109","template":0,"uptime":518718,"netout":384554592,"node":"asguard","status":"running"},{"diskwrite":108892160,"name":"arhost-haproxy","maxdisk":8388009984,"maxmem":2202009600,"diskread":201572352,"vmid":110,"tags":"client_infrastructure","disk":1016819712,"mem":508928000,"cpu":0.0298635005285762,"netin":213445600,"type":"lxc","id":"lxc/110","maxcpu":2,"template":0,"status":"running","netout":31189428,"node":"asguard","uptime":518705},{"template":0,"uptime":69389,"node":"olympus","netout":116426279,"status":"running","type":"qemu","netin":181971760,"cpu":0.00425687884191246,"maxcpu":4,"id":"qemu/111","vmid":111,"diskread":1217819136,"maxmem":8493465600,"mem":2217807872,"disk":0,"tags":"client_infrastructure","maxdisk":10737418240,"name":"Updater","diskwrite":2597954560},{"maxmem":1153433600,"diskread":61640192,"vmid":112,"tags":"client;client_infrastructure;stable","disk":0,"mem":139942792,"diskwrite":5120,"name":"Artisan-Demo","maxdisk":10737418240,"template":0,"status":"running","node":"olympus","netout":0,"uptime":9,"cpu":0,"netin":42,"type":"qemu","id":"qemu/112","maxcpu":1},{"status":"running","uptime":518725,"node":"asguard","netout":114789802,"template":0,"id":"qemu/200","maxcpu":1,"hastate":"started","netin":346249212,"cpu":0.0129545393178372,"type":"qemu","disk":0,"tags":"internal_infrastructure,client_infrastructure","mem":473509888,"diskread":350003712,"maxmem":536870912,"vmid":200,"name":"openldap","diskwrite":748003328,"maxdisk":26843545600},{"diskread":0,"maxmem":4294967296,"vmid":9000,"disk":0,"tags":"client;client_infrastructure;stable","mem":0,"name":"Dedicated-Image","diskwrite":0,"maxdisk":10737418240,"template":1,"status":"stopped","uptime":0,"netout":0,"node":"olympus","netin":0,"cpu":0,"type":"qemu","id":"qemu/9000","maxcpu":2}]}
+2023/06/18 19:07:18 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/qemu/112/config HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:18 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1350
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:18 GMT
+Expires: Mon, 19 Jun 2023 00:07:18 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"onboot":0,"rng0":"max_bytes=4096,source=/dev/urandom","digest":"133e9d1999f854828854a375a4032a38cb3cd869","bios":"seabios","net0":"virtio=4A:A6:1A:34:56:A5,bridge=vmbr0","smbios1":"uuid=37a4353d-a6aa-4511-aa1c-112c18a2270f","cores":1,"scsihw":"virtio-scsi-single","meta":"creation-qemu=7.2.0,ctime=1686359922","memory":1100,"kvm":1,"cpu":"host","numa":0,"tablet":1,"ipconfig0":"ip=10.1.0.101/24,gw=10.1.0.1","tags":"client;client_infrastructure;stable","sockets":1,"sshkeys":"ssh-rsa%20AAAAB3NzaC1yc2EAAAADAQABAAABgQDVQaQdpM8JWRM09WGVecCmahGzerVMdqHisAdGnIJ7tgv%2FsSdLQF7Vw85k5hiLt6X6YZ%2FPThvZ4ELlt0DVI2Rq%2BeVFFFo0k5XlVOlv5z1R1NG0b%2BsZLQZ6wjx9rhlChimrnK3P09o5Qq17SPOQsV%2F4rv%2FsMaz%2BlXOOral%2BPXpdYFdz9vPIM5Jm9nOwyap9TF%2BWB7jDn02BPL6%2FOPA7qfc1QUwLaZgnTZ%2BQxRDR7hbC6OTcWAKxPfSaxOnX0eGjgI8YeTYGY6kmyp4xylBNP5dR5AFnz9jlVgTrKnNsQtHRrseOvJPdzcbT5Lf58D0LTfj7Lu6wYxt9KJd%2FKZWSVPPsRXBQArxvArk4NLvAdXJi%2BuUm5cW6l%2B3k1BjvTBQi%2BhvveHWfwgOHRfKfRDHdlwNKDgUnt1fRMZmJb5eo03dp62sRbduW%2Fh8SSi9MF2WMjUKytJNSqmDKjYfzhkrBEBzAXtnOtsfCHySSxOMwmdak4S%2BrC906ESwC0ws7dcKUuwc%3D%20dwhitfield%40Archhome%0A","hotplug":"network,disk,usb","ostype":"l26","name":"Artisan-Demo","agent":"1","boot":"c","vmgenid":"7a8c1848-46ff-485f-ae94-03e572633550","description":"Stable Diffusion","bootdisk":"scsi0","scsi0":"local-lvm:vm-112-disk-0,iothread=1,size=10G"}}
+2023/06/18 19:07:18 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/storage/local-lvm/content HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:19 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1130
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:19 GMT
+Expires: Mon, 19 Jun 2023 00:07:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[{"size":10737418240,"format":"raw","volid":"local-lvm:base-9000-disk-0","content":"images","ctime":"1687132914","vmid":9000},{"content":"images","volid":"local-lvm:vm-100-disk-0","vmid":100,"ctime":"1686603934","size":34359738368,"format":"raw"},{"size":4194304,"format":"raw","volid":"local-lvm:vm-101-disk-0","content":"images","ctime":"1685155051","vmid":101},{"vmid":101,"ctime":"1686603767","content":"images","volid":"local-lvm:vm-101-disk-1","format":"raw","size":68719476736},{"format":"raw","size":10737418240,"vmid":102,"ctime":"1687132531","content":"images","volid":"local-lvm:vm-102-disk-0"},{"ctime":"1687131980","vmid":102,"volid":"local-lvm:vm-102-state-cloud-image-v1-81","content":"images","format":"raw","size":9114222592},{"size":9114222592,"format":"raw","content":"images","volid":"local-lvm:vm-102-state-cloud-image-v2-0","vmid":102,"ctime":"1687132847"},{"format":"raw","size":17179869184,"vmid":104,"ctime":"1686603842","content":"images","volid":"local-lvm:vm-104-disk-0"},{"format":"raw","size":10737418240,"ctime":"1687133124","vmid":112,"volid":"local-lvm:vm-112-disk-0","content":"images"}]}
+2023/06/18 19:07:19 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/storage/local-lvm/status HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:19 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 149
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:19 GMT
+Expires: Mon, 19 Jun 2023 00:07:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"total":179197444096,"content":"images,rootdir","avail":31467071184,"enabled":1,"shared":0,"active":1,"used":147730372912,"type":"lvmthin"}}
+2023/06/18 19:07:19 >>>>>>>>>> REQUEST:
+GET /api2/json/nodes/olympus/qemu/112/status/current HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:19 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 1628
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:19 GMT
+Expires: Mon, 19 Jun 2023 00:07:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":{"proxmox-support":{"pbs-dirty-bitmap-migration":true,"backup-max-workers":true,"pbs-library-version":"1.3.1 (4d450bb294cac5316d2f23bf087c4b02c0543d79)","pbs-masterkey":true,"pbs-dirty-bitmap-savevm":true,"query-bitmap-info":true,"pbs-dirty-bitmap":true},"qmpstatus":"running","running-machine":"pc-i440fx-7.2+pve0","maxmem":1153433600,"status":"running","name":"Artisan-Demo","balloon":1153433600,"vmid":112,"running-qemu":"7.2.0","uptime":15,"tags":"client;client_infrastructure;stable","diskread":266854400,"ha":{"managed":0},"pid":1621475,"blockstat":{"scsi0":{"unmap_bytes":237568,"failed_unmap_operations":0,"account_failed":true,"wr_merged":0,"account_invalid":true,"failed_flush_operations":0,"rd_bytes":266854400,"failed_rd_operations":0,"timed_stats":[],"flush_total_time_ns":1141118,"wr_total_time_ns":183408914,"unmap_total_time_ns":128215,"failed_wr_operations":0,"idle_time_ns":1931282,"invalid_rd_operations":0,"wr_operations":908,"flush_operations":32,"invalid_flush_operations":0,"invalid_unmap_operations":0,"rd_merged":0,"wr_bytes":7841280,"invalid_wr_operations":0,"rd_total_time_ns":11679082064,"wr_highest_offset":8932708352,"rd_operations":6358,"unmap_merged":0,"unmap_operations":34}},"maxdisk":10737418240,"cpu":0,"mem":293924864,"freemem":808665088,"cpus":1,"agent":1,"netin":37352,"ballooninfo":{"actual":1153433600,"minor_page_faults":98090,"max_mem":1153433600,"total_mem":1102589952,"mem_swapped_out":0,"free_mem":808665088,"major_page_faults":1373,"last_update":1687133238,"mem_swapped_in":0},"netout":28588,"nics":{"tap112i0":{"netout":28588,"netin":37352}},"disk":0,"diskwrite":7841280}}
+2023/06/18 19:07:19 [DEBUG] VM status: running
+[90mSun, 18 Jun 2023 19:07:19 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1283[0m[36m >[0m [READ] Received Config from Proxmox API: {"vmid":0,"name":"Artisan-Demo","desc":"Stable Diffusion","bios":"seabios","onboot":false,"tablet":true,"agent":1,"memory":1100,"balloon":0,"os":"l26","cores":1,"sockets":1,"vcpus":0,"cpu":"host","numa":false,"kvm":true,"hotplug":"network,disk,usb","iso":"","fullclone":null,"boot":"c","bootdisk":"scsi0","scsihw":"virtio-scsi-single","disk":{"0":{"file":"vm-112-disk-0","format":"raw","iothread":1,"size":"10G","slot":0,"storage":"local-lvm","storage_type":"lvmthin","type":"scsi","volume":"local-lvm:vm-112-disk-0"}},"unused_disk":{},"network":{"0":{"bridge":"vmbr0","id":0,"macaddr":"4A:A6:1A:34:56:A5","model":"virtio"}},"tags":"client;client_infrastructure;stable","args":"","diskGB":0,"storage":"","storageType":"","nic":"","bridge":"","vlan":-1,"mac":"","ciuser":"","cipassword":"","cicustom":"","searchdomain":"","nameserver":"","sshkeys":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDVQaQdpM8JWRM09WGVecCmahGzerVMdqHisAdGnIJ7tgv/sSdLQF7Vw85k5hiLt6X6YZ/PThvZ4ELlt0DVI2Rq+eVFFFo0k5XlVOlv5z1R1NG0b+sZLQZ6wjx9rhlChimrnK3P09o5Qq17SPOQsV/4rv/sMaz+lXOOral+PXpdYFdz9vPIM5Jm9nOwyap9TF+WB7jDn02BPL6/OPA7qfc1QUwLaZgnTZ+QxRDR7hbC6OTcWAKxPfSaxOnX0eGjgI8YeTYGY6kmyp4xylBNP5dR5AFnz9jlVgTrKnNsQtHRrseOvJPdzcbT5Lf58D0LTfj7Lu6wYxt9KJd/KZWSVPPsRXBQArxvArk4NLvAdXJi+uUm5cW6l+3k1BjvTBQi+hvveHWfwgOHRfKfRDHdlwNKDgUnt1fRMZmJb5eo03dp62sRbduW/h8SSi9MF2WMjUKytJNSqmDKjYfzhkrBEBzAXtnOtsfCHySSxOMwmdak4S+rC906ESwC0ws7dcKUuwc= dwhitfield@Archhome\n","ipconfig0":"ip=10.1.0.101/24,gw=10.1.0.1","ipconfig1":"","ipconfig2":"","ipconfig3":"","ipconfig4":"","ipconfig5":"","ipconfig6":"","ipconfig7":"","ipconfig8":"","ipconfig9":"","ipconfig10":"","ipconfig11":"","ipconfig12":"","ipconfig13":"","ipconfig14":"","ipconfig15":""} [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
+[90mSun, 18 Jun 2023 19:07:19 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1375[0m[36m >[0m Unused Disk Block Processed 'map[0:map[bridge:vmbr0 id:0 macaddr:4A:A6:1A:34:56:A5 model:virtio]]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
+[90mSun, 18 Jun 2023 19:07:19 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1389[0m[36m >[0m Network block received 'map[0:map[bridge:vmbr0 id:0 macaddr:4A:A6:1A:34:56:A5 model:virtio]]' [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
+2023/06/18 19:07:19 >>>>>>>>>> REQUEST:
+GET /api2/json/pools HTTP/1.1
+Host: datacenter.ramfield.net
+User-Agent: Go-http-client/1.1
+Accept: application/json
+Authorization: PVEAPIToken=terraform@mother_land!terraform=5af5ebf3-1050-4439-a1f4-16a09eb500f0
+Accept-Encoding: gzip
+
+2023/06/18 19:07:19 <<<<<<<<<< RESULT:
+HTTP/1.1 200 OK
+Content-Length: 11
+Cache-Control: max-age=0
+Content-Type: application/json;charset=UTF-8
+Date: Mon, 19 Jun 2023 00:07:19 GMT
+Expires: Mon, 19 Jun 2023 00:07:19 GMT
+Pragma: no-cache
+Server: pve-api-daemon/3.0
+Strict-Transport-Security: max-age=15768000
+
+{"data":[]}
+[90mSun, 18 Jun 2023 19:07:19 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1450[0m[36m >[0m VM Net Config 'map[0:map[bridge:vmbr0 id:0 macaddr:4A:A6:1A:34:56:A5 model:virtio tag:-1]]' from '[map[bridge:vmbr0 macaddr:4A:A6:1A:34:56:A5 model:virtio tag:-1]]' set as '[map[bridge:vmbr0 firewall:false link_down:false macaddr:4A:A6:1A:34:56:A5 model:virtio queues:0 rate:0 tag:-1]]' type of 'string' [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
+[90mSun, 18 Jun 2023 19:07:19 -0500[0m [33mDBG[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/resource_vm_qemu.go:1452[0m[36m >[0m Finished VM read resulting in data: '{"additional_wait":0,"agent":1,"args":"","automatic_reboot":true,"balloon":0,"bios":"seabios","boot":"c","bootdisk":"scsi0","bridge":"","ci_wait":0,"cicustom":"","cipassword":"","ciuser":"","clone":"Dedicated-Image","clone_wait":0,"cloudinit_cdrom_storage":"","cores":1,"cpu":"host","default_ipv4_address":"10.1.0.22","define_connection_info":true,"desc":"Stable Diffusion","disk":[{"aio":"","backup":0,"cache":"none","discard":"","file":"vm-112-disk-0","format":"raw","iothread":1,"mbps":0,"mbps_rd":0,"mbps_rd_max":0,"mbps_wr":0,"mbps_wr_max":0,"media":"","replicate":0,"size":"10G","slot":0,"ssd":0,"storage":"local-lvm","storage_type":"lvmthin","type":"scsi","volume":"local-lvm:vm-112-disk-0"}],"disk_gb":0,"force_create":false,"force_recreate_on_change_of":"","full_clone":true,"guest_agent_ready_timeout":100,"hagroup":"","hastate":"","hotplug":"network,disk,usb","ipconfig0":"ip=10.1.0.101/24,gw=10.1.0.1","ipconfig1":"","ipconfig2":"","ipconfig3":"","ipconfig4":"","ipconfig5":"","iso":"","kvm":true,"mac":"","memory":1100,"name":"Artisan-Demo","nameserver":"","network":[{"bridge":"vmbr0","firewall":false,"link_down":false,"macaddr":"4A:A6:1A:34:56:A5","model":"virtio","queues":0,"rate":0,"tag":-1}],"nic":"","numa":false,"onboot":false,"oncreate":true,"os_network_config":"","os_type":"cloud-init","pool":"","preprovision":true,"qemu_os":"l26","reboot_required":false,"scsihw":"virtio-scsi-single","searchdomain":"","serial":[],"sockets":1,"ssh_forward_ip":"","ssh_host":"10.1.0.22","ssh_port":"22","ssh_private_key":"","ssh_user":"","sshkeys":"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDVQaQdpM8JWRM09WGVecCmahGzerVMdqHisAdGnIJ7tgv/sSdLQF7Vw85k5hiLt6X6YZ/PThvZ4ELlt0DVI2Rq+eVFFFo0k5XlVOlv5z1R1NG0b+sZLQZ6wjx9rhlChimrnK3P09o5Qq17SPOQsV/4rv/sMaz+lXOOral+PXpdYFdz9vPIM5Jm9nOwyap9TF+WB7jDn02BPL6/OPA7qfc1QUwLaZgnTZ+QxRDR7hbC6OTcWAKxPfSaxOnX0eGjgI8YeTYGY6kmyp4xylBNP5dR5AFnz9jlVgTrKnNsQtHRrseOvJPdzcbT5Lf58D0LTfj7Lu6wYxt9KJd/KZWSVPPsRXBQArxvArk4NLvAdXJi+uUm5cW6l+3k1BjvTBQi+hvveHWfwgOHRfKfRDHdlwNKDgUnt1fRMZmJb5eo03dp62sRbduW/h8SSi9MF2WMjUKytJNSqmDKjYfzhkrBEBzAXtnOtsfCHySSxOMwmdak4S+rC906ESwC0ws7dcKUuwc= dwhitfield@Archhome\n","storage":"","storage_type":"","tablet":true,"tags":"client;client_infrastructure;stable","target_node":"olympus","unused_disk":[],"vcpus":0,"vga":[],"vlan":-1,"vmid":0}' [36mloggerName=[0mresource_vm_read [36mvmid=[0m112
