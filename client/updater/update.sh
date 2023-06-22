@@ -54,6 +54,11 @@ chmod +x /usr/local/bin/Artisan/Updater/update_kickstart.php
 version="Artisan Manager version: $(artisan --version-cli) installed"
 echo "$version"
 
+#! custom code needed on new runs 
+openssl req -new -newkey rsa:4096 -nodes \
+    -keyout /etc/ssl/private/apache-selfsigned.key -out selfsigned.csr \
+    -subj "/C=US/ST=Wisconsin/L=Milwaukee/O=Dis/CN=client.local"
+
 systemctl daemon-reload
 systemctl start ArtisanManager.timer
 systemctl start ArtisanUpdater.timer
