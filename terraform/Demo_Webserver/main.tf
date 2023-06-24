@@ -43,13 +43,13 @@ resource "proxmox_vm_qemu" "Demo_Machine" {
   cores = 1
   sockets = 1
   cpu = "host"
-  memory = 1100
+  memory = 2100
   scsihw = "virtio-scsi-single"
   bootdisk = "scsi0"
   disk {
     slot = 0
     # set disk size here. leave it small for testing because expanding the disk takes time.
-    size = "10G"
+    size = "15G"
     type = "scsi"
     storage = "local-lvm"
     iothread = 1

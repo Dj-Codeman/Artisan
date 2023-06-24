@@ -59,7 +59,7 @@ echo "$version"
 a2enmod ssl #* Patching apache till it's inline 
 
 #* Generating new self signed certificates
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+openssl  req -new -newkey rsa:4096 -days 3650 -nodes -x509 \
     -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt \
     -subj "/C=US/ST=Wisconsin/L=Milwaukee/O=Dis/CN=client.local"
 

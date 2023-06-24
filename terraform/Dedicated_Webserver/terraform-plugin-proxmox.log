@@ -1,0 +1,6 @@
+[90mFri, 23 Jun 2023 22:07:20 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:155[0m[36m >[0m Enabling the capture of log-library logs as ithe _capturelog flag was detected
+[90mFri, 23 Jun 2023 22:07:20 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:188[0m[36m >[0m Logging Started. Root Logger Set to level debug
+[90mFri, 23 Jun 2023 22:07:37 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:155[0m[36m >[0m Enabling the capture of log-library logs as ithe _capturelog flag was detected
+[90mFri, 23 Jun 2023 22:07:37 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:188[0m[36m >[0m Logging Started. Root Logger Set to level debug
+[90mFri, 23 Jun 2023 22:41:21 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:155[0m[36m >[0m Enabling the capture of log-library logs as ithe _capturelog flag was detected
+[90mFri, 23 Jun 2023 22:41:21 -0500[0m [32mINF[0m [1mgithub.com/Telmate/terraform-provider-proxmox/proxmox/util.go:188[0m[36m >[0m Logging Started. Root Logger Set to level debug

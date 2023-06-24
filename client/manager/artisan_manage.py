@@ -12,7 +12,7 @@ from mysql.connector import Error
 import smtplib
 from email.message import EmailMessage
 
-version = "2.61"
+version = "2.70"
 
 try:
     arg = sys.argv[1]
@@ -145,7 +145,7 @@ def register_uuid(uuid):
     # determining the type of system with the num of cores
     num_cores = os.cpu_count()
     
-    if num_cores > 1 :
+    if num_cores > 2 :
         machine_type = "Big"
     else :
         machine_type = "Little"
