@@ -1,7 +1,7 @@
 <?php
 
-// OTA Update Script
-// Made by Atharva Deosthale
+// Artisan OTA Server
+// Made by Darrion Whitfield
 
 // Function to send response to the client in the JSON Format
 
@@ -18,22 +18,27 @@ function send_response($x,$y) {
 }
 
 function check_package($name) {
-	$manager_path = "/root/Artisan-Hosting/Machine-Management/client";
-	$deligator_path = "/root/Artisan-Hosting/Machine-Management/server";
-	$teather_path = "/root/Artisan-Hosting/Machine-Management/teather";
+	$manager_path = "/opt/Artisan/client";
+	// update the paths
+	$deligator_path = "/opt/Artisan/server";
+	$teather_path = "/opt/Artisan/teather";
 
 	if($name == "Manager") {
-		// do somthing to get the latest version
 		$version_path = $manager_path .= "/version.ar";
 		$version = file_get_contents($version_path);
+
 	} elseif($name == "Deligator") {
 		$version_path = $deligator_path .= "/version.ar";
 		$version = file_get_contents($version_path);
+
 	} elseif($name == "Teather") {
 		$version_path = $teather_path .= "/version.ar";
 		$version = file_get_contents($version_path);
+
 	} else {
-		die("Sir this is wendys");
+
+		send_response("500", "Internal Server Error");
+
 	}
 
 	return $version;

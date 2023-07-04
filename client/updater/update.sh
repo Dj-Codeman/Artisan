@@ -7,13 +7,12 @@ systemctl stop ArtisanUpdater.timer
 
 # * Making dir to rollback 
 cd /tmp/artisan_update/ || echo "Update ill formed"
+
+# * Setting directories
 mkdir /tmp/artisan_fallback/
-
-mv -v /usr/local/bin/Artisan /tmp/artisan_fallback/Artisan.old/
-
 mkdir -v /usr/local/bin/Artisan 
-
-mkdir /usr/local/bin/Artisan/{Firstrun,Manager,Updater,Welcome}
+mkdir -v /usr/local/bin/Artisan/{Firstrun,Manager,Updater,Welcome}
+mv -v /usr/local/bin/Artisan/ /tmp/artisan_fallback
 
 # ! copy the files
 
@@ -55,14 +54,6 @@ version="Artisan Manager version: $(artisan --version-cli) installed"
 echo "$version"
 
 #! custom code needed on new runs 
-
-a2enmod ssl #* Patching apache till it's inline 
-
-#* Generating new self signed certificates
-openssl  req -new -newkey rsa:4096 -days 3650 -nodes -x509 \
-    -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt \
-    -subj "/C=US/ST=Wisconsin/L=Milwaukee/O=Dis/CN=client.local"
-
 
 systemctl daemon-reload
 systemctl start ArtisanManager.timer

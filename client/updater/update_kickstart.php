@@ -1,11 +1,11 @@
 <?php
 
-// OTA Update Script
-// Made by Atharva Deosthale
+// Artisan OTA Client
+// Made by Darrion Whitfield
 
 // Set cURL URL (master server address) and may not be localhost
 $url = "http://updater.local/index.php";
-$package = "Manager"; // deploy diffrent servers with this set
+$package = "Manager"; // Making the useable with diffrent systems
 $version = shell_exec("artisan --version-cli");
 
 // set POST data
@@ -45,26 +45,36 @@ if ($data["status_code"] == "200") {
     // save link
     $link = $data["status_message"];
 
-} elseif ($data["status_code"] == "404") {
+} elseif ($data["status_code"] == "418") {
     // kill app 
-    die("You have requested and invalid package \n");
+    die("You have requested coffee from the teapot \n");
+
+} elseif ($data["status_code"] == "204") {
+  
+  die("You have the latest version \n");
 
 } else {
-    die("You have the latest version \n");
+  print($data["status_code"]);
+  print($data["status_message"]);
+  die("Exiting");
 }
 
 // Start update
-echo "New version found! " ."\n". "Updating Artisan Suite...." ."\n";
+$message = "New version found!";
+$message .= "\n";
+$message .= "Updating Artisan Suite";
+$message .= "\n";
+echo $message;
 
 // Download update package
-file_put_contents("/tmp/update.zip", file_get_contents($data["status_message"]));
+$package_path = "/tmp/artisan.zip";
+file_put_contents($package_path, file_get_contents($data["status_message"]));
 
 // Get project path
 
 // Zip file name
-$filename = '/tmp/update.zip';
 $zip = new ZipArchive;
-$res = $zip->open($filename);
+$res = $zip->open($package_path);
 if ($res === TRUE) {
 
  // Unzip path
@@ -74,10 +84,11 @@ if ($res === TRUE) {
  $zip->extractTo($path);
  $zip->close();
 
- echo 'Unpacked\nInstalling...';
+ echo "Unpacked \nInstalling...";
 } else {
- echo 'failed!';
- die("An error occoured while downloading the update");
+  
+ echo 'FAILED UNPACKING!';
+ die("Let me leave before I break something");
 }
 
 // start update process

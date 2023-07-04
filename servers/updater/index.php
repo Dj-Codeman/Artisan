@@ -1,75 +1,49 @@
 <?php
 
-// OTA Updater script
-// Made by Atharva Deosthale
+// Artisan OTA Server
+// Made by Darrion Whitfield
 
 require_once "functions.php";
 
 // Inform the brower that the page represents JSON Format
-// add func to get the versions of the working files
-
 header("Content-Type: application/json");
 
-// Check version
-
+// Validating Package and Version Request
 if (!isset($_POST["version"])) {
-	send_response("404", "Invalid Request NO_VERSION");
+	send_response("418", "UPDATE WHAT! NO_VERSION");
 	die();
 }
 
 if (!isset($_POST["package"])) {
-	send_response("404", "Invalid Request NO_PACKAGE");
+	send_response("418", "UPDATE WHAT! NO_PACKAGE");
 	die();
 }
 
-// Get version and package name
-$version = $_POST["version"];
+$client_version = $_POST["version"];
 $package = $_POST["package"];
+$server_version = check_package($package);
 
-// Check for updates
-if ($package == "Manager") {
+if ($client_version == $server_version) {
 
-	if ($version != check_package("Manager")) {
-		// Send OTA Update to client
-		send_response("200", "http://updater.local/software/ArtisanManager_v2.0.zip");
-		die();
-	} else {
+	send_response("204", "Latest Version");
+	die();
 
-		send_response("403", "Latest Version");
-		die();
-	}
+} elseif ($client_version != $server_version && isset($server_version)) {
+	
+	// Creating link to new package
+	$link = "http://updater.local/software/Artisan";
+	$link .= $package;
+	$link .= "_v";
+	$link .= $server_version;
+	$link .= ".zip";
 
-
-
-} elseif ($package == "Deligator") {
-
-	if ($version == check_package("Deligator")) {
-		// Send OTA Update to client
-		send_response("200", "http://updater.local/software/ArtisanDeligator_v2.0.zip");
-		die();
-	} else {
-
-		send_response("403", "Latest Version");
-		die();
-
-	}
-
-} elseif ($package == "Teather") {
-
-	if ($version == check_package("Teather")) {
-		// Send OTA Update to client
-		send_response("200", "http://updater.local/software/ArtisanTeather_v2.0.zip");
-		die();
-	} else {
-
-		send_response("403", "Latest Version");
-		die();
-	}
+	send_response("200", $link);
+	die();
 } else {
 
-	send_response("404", "Invalid Version");
+	send_response("500", "The requested resource could not be found");
 	die();
+
 }
-// End of script
 
 ?>
