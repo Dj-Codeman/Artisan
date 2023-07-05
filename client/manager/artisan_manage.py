@@ -1,16 +1,10 @@
 #!/usr/bin/python3
 
 import os, sys
-import fcntl, socket, struct
-import mysql.connector
 import random,string
 # import csv
 import zipfile
 import requests
-
-from mysql.connector import Error
-import smtplib
-from email.message import EmailMessage
 
 version = "2.70"
 
@@ -26,82 +20,6 @@ else:
     if arg == "--version":
         print(f"Version {version}")
         sys.exit(0)
-    
-#! Email stuff 
-def send_email(message):
-
-    port = 465  # For SSL
-    password = "edOMOo,=,33" #! THIS NEEDS TO BE FUCKING ENCRYPTED v3 goal
-    
-    # Create a secure SSL context
-    # context = ssl.create_default_context()
-
-    msg = EmailMessage()
-    msg['Subject'] = "Artisan Manager Bot"
-    msg['From'] = "artisan_bot@artisanhosting.net"
-    msg['To'] = "dwhitfield@ramfield.net"
-    msg.set_content(message)
-
-    with smtplib.SMTP_SSL("mail.ramfield.net", port ) as server:
-        server.login("artisan_bot@artisanhosting.net", password)
-        server.send_message(msg)
-
-# ! mysql connecting func
-def create_server_connection(host_name, user_name, user_password):
-    connection = None
-    try:
-        connection = mysql.connector.connect(
-            host=host_name,
-            user=user_name,
-            passwd=user_password,
-            database="Artisan_Map"
-        )
-        # print("MySQL Database connection successful")
-    except Error as err:
-        print(f"Error: '{err}'")
-
-    return connection
-
-def read_query(connection, query):
-    cursor = connection.cursor()
-    result = None
-    try:
-        cursor.execute(query)
-        result = cursor.fetchall()
-        return result
-    except Error as err:
-        print(f"Error: '{err}'")
-
-#! mysql write 
-def execute_query(connection, query):
-    cursor = connection.cursor()
-    try:
-        cursor.execute(query)
-        connection.commit()
-        print("Query successful")
-    except Error as err:
-        print(f"Error: '{err}'")\
-
-# ! Pulling mac addr
-def getHwAddr(ifname):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    info = fcntl.ioctl(s.fileno(), 0x8927,  struct.pack('256s', bytes(ifname, 'utf-8')[:15]))
-    return '-'.join('%02x' % b for b in info[18:24])
-
-# ! pulling ip addr
-def get_ip():
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.settimeout(0)
-        try:
-            # doesn't even have to be reachable
-            s.connect(('10.254.254.254', 1))
-            IP = s.getsockname()[0]
-        except Exception:
-            IP = '127.0.0.1'
-        finally:
-            s.close()
-        return IP
-    # print(get_ip())
 
 
 # ! Generating the uuid
@@ -112,8 +30,6 @@ def uuid_gen():
     return uuid
 
 def initialize():
-    # first we see if the system has been initialized
-    sanatize_cid()
     if os.path.isfile("/etc/artisan.mid"):
         with open("/etc/artisan.mid", 'r') as file:
             uuid = file.read().rstrip()
@@ -123,13 +39,6 @@ def initialize():
         uuid = uuid_gen()
         # registering the uuid with the database
         register_uuid(uuid)
-
-# ! Sanatizing the client id file 
-def sanatize_cid():
-    cid = "/etc/artisan.cid"
-    cid_t = "/tmp/artisan.cid"
-    # os.rename("/etc/artisan.cid", "/etc/artisan.cid.old")
-    # os.rename(f"{cid_t}", f"{cid}")
 
 
 # ! resolving clinet data
@@ -164,7 +73,7 @@ def register_uuid(uuid):
     cursor = connection.cursor()
 
     try:
-        cursor.execute(query)
+        cursor.write(query)
         connection.commit()
         message = f"Machine registered, mac: {mac_addr}"
         print(message)
@@ -189,7 +98,7 @@ def update_uuid(uuid):
     result = None
     
     try:
-        cursor.execute(query)
+        cursor.write(query)
         result = cursor.fetchall()
     except Error as err:
         message = f"Could not update Machine, Error: '{err}'"
@@ -270,7 +179,7 @@ def update_uuid(uuid):
                    
                     # * updating the ip on db 
                     query = f"UPDATE client_id SET client_ip = '{stored_ip}' WHERE client_id = '{client_id}'"
-                    execute_query(connection, query)
+                    write_query(connection, query)
                    
                     # * Downloading the latest wordpress zip
                     print(f"Machine {machine_id}: Downloading Lastest WP \n")
@@ -316,7 +225,7 @@ def update_uuid(uuid):
                     
                     # ! home the client
                     query = f"UPDATE client_id SET client_hs = 'TRUE' WHERE client_id = '{client_id}';"
-                    execute_query(connection, query)
+                    write_query(connection, query)
                     
                     # ! Adding to the cid
                     sanatize_cid()
@@ -373,7 +282,7 @@ def update_uuid(uuid):
                     print(f"Machine {machine_id}: Making {username} homeless \n")
                    
                     query = f"UPDATE client_id SET client_ip = '10.1.0.000', client_hs = 'False' WHERE client_id = '{client_id}';"
-                    execute_query(connection, query)
+                    write_query(connection, query)
                     
                     # ! updating the cid file
                     with open("/etc/artisan.cid") as infile, open(f"/tmp/artisan.cid", 'w') as outfile: 

@@ -1,0 +1,1 @@
+The is a package containing simple tools the let the artisan manager and registration scripts have a lighter base
