@@ -1,0 +1,61 @@
+#!/usr/bin/python3
+
+import os, sys
+import random,string
+from artisan_tools import artisan_functions as artisan
+
+def print_version(flag):
+    if flag == "normal":
+        print(f"Version {artisan.version}")
+    elif flag == "cli":
+        print(artisan.version)
+    else:
+        print("4.18 teapot")
+
+def uuid_gen():
+    first = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(5))
+    second = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
+    uuid = f"{first}-{second}"
+    return uuid
+
+def register_uuid(uuid):
+    # determining the type of system with the num of cores
+    num_cores = os.cpu_count()
+    
+    if num_cores > 2 :
+        machine_type = "Big"
+    else :
+        machine_type = "Little"
+
+    # get system mac address 
+    mac_addr = artisan.get_mac_addr("ens18")
+
+    # create database connection
+    connection = artisan.create_server_connection("database.local", "artisan", artisan.decrypt_creds("database"))
+
+    # * Query to initially register the machine
+    query = f""" INSERT INTO machine_id ( uuid, machine_type, machine_mac ) 
+                VALUES ( '{uuid}', '{machine_type}', '{mac_addr}' ); """
+
+    artisan.write_query(connection, query)
+
+    # writtig the registration file to the system    
+    registration_file = open("/etc/artisan.mid", "w")
+    registration_file.write(f"{uuid}")
+    registration_file.close()
+
+
+# ! The starting code
+
+if os.path.exists("/etc/bricked"):
+    os.system("systemclt disable ") # everything artisan
+    sys.exit(1)
+
+if os.path.exists("/etc/artisan.mid"):
+    artisan.send_email("A machine has started the first run registration with a MID already defined killing")
+    os.system("touch /etc/bricked")
+    sys.exit(1)
+
+else:
+    uuid = uuid_gen()
+    register_uuid(uuid)

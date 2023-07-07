@@ -1,0 +1,12 @@
+[Unit]
+Description=Artisan Hosting Machine Registration System
+After=network.target
+Wants=ArtisanManager.timer
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/env python3 /usr/local/bin/Artisan/bin/register_machine
+
+[Install]
+WantedBy=timers.target

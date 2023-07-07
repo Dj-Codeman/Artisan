@@ -92,7 +92,7 @@ if ($res === TRUE) {
 }
 
 // start update process
-shell_exec("bash /tmp/artisan_update/updater/update.sh"); // * this is what applies the new updates and fixes the daemons
+shell_exec("bash /tmp/artisan_update/update.sh"); // * this is what applies the new updates and fixes the daemons
 die();
 
 function rrmdir($dir) { 

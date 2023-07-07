@@ -1,0 +1,11 @@
+[Unit]
+Description=Artisan Hosting Machine Management OTA System
+After=network.target
+WantsArtisanManager.timer
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/env php /usr/local/bin/Artisan/bin/update_machine
+[Install]
+WantedBy=timers.target

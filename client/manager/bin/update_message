@@ -1,0 +1,10 @@
+#! /usr/bin/python3
+import socket,sys
+from artisan_tools import client_functions as client
+from artisan_tools import machine_functions as machine
+
+installed_version = client.version
+hostname = socket.gethostname()
+machine.send_email(f"System {hostname} has installed version {installed_version} !")
+
+sys.exit(0)

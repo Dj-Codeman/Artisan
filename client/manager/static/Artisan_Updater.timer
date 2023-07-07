@@ -2,7 +2,7 @@
 Description=Artisan Hosting Machine Management OTA Timer
 
 [Timer]
-Unit=ArtisanUpdater.service
+Unit=Artisan_Updater.service
 OnCalendar=*-*-* *:*:00
 
 [Install]

@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=oneshot
 User=root
-ExecStart=/bin/bash /usr/local/bin/Artisan/kickstart/kickstart.sh
+ExecStart=/bin/bash /usr/local/bin/Artisan/bin/provision_machine
 
 [Install]
 WantedBy=multi-user.target

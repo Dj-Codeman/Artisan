@@ -9,21 +9,22 @@ import smtplib
 
 def decrypt_creds(name):
     # test if encore is installed and die other wise
-    if os.path.isfile("/usr/local/bin/encore"):
-        os.system("encore --read artisan email")
-    else:
+    if os.path.isfile("/usr/local/bin/encore") == False:
         sys.exit(1)
+
     # * getting the name and pw
     if name == "database":
         os.system("encore --read artisan database")
         with open("/tmp/database.pw", 'r') as file:
             password = file.read().rstrip()
+        os.system("rm /tmp/database.pw")
         return password
     
     elif name == "email":
         os.system("encore --read artisan email")
         with open("/tmp/email.pw", 'r') as file:
             password = file.read().rstrip()
+        os.system("rm /tmp/database.pw")
         return password
     
 # ! Emailing tools
@@ -97,3 +98,4 @@ def get_ip():
         finally:
             s.close()
         return ip
+

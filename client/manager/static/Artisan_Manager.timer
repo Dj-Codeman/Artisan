@@ -2,7 +2,7 @@
 Description=Artisan Hosting Machine Management Server Timer
 
 [Timer]
-Unit=ArtisanManager.service
+Unit=Artisan_Manager.service
 OnCalendar=*-*-* *:*:00
 
 [Install]

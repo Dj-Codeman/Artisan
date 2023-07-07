@@ -1,12 +1,14 @@
 #! /usr/bin/python3
 
 # A Custom Welcome message that will integrate with other infrastructure 
-version = "2.1"
+version = "3.0"
 # getting system data
 import platform,socket,psutil,os
+from artisan_tools import client_functions as client
+
 svmem = psutil.virtual_memory()
 uname = platform.uname()
-artisan_version = os.popen("artisan --version-cli").read().rstrip()
+artisan_version = client.version
 
 system_version = uname.release
 system_hostname = socket.gethostname()
