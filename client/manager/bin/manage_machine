@@ -2,17 +2,18 @@
 
 import os, sys
 import csv
-from artisan_tools import artisan_functions as artisan
 from artisan_tools import client_functions as client
+from artisan_tools import machine_functions as machine
 
 with open("/etc/artisan.mid", 'r') as file:
     mid = file.read().rstrip()
 
+connection = machine.create_server_connection("database.local", "artisan", machine.decrypt_creds("database"))
+
 def resolve_client(cid):
-    connection = artisan.create_server_connection("database.local", "artisan", artisan.decrypt_creds("database")) # ! this needs to be encrypted and read from a file
     query = f"SELECT * FROM client_id WHERE client_id = '{cid}'"
 
-    client_data = artisan.read_query(connection, query)
+    client_data = machine.read_query(connection, query)
     return client_data
 
 def exact_match(data, string):
@@ -24,19 +25,18 @@ def exact_match(data, string):
 def update_machine():
     
     # Getting  machine info
-    connection = artisan.create_server_connection("database.local", "artisan", artisan.decrypt_creds("database"))
     query = f"SELECT * FROM machine_id WHERE uuid = '{mid}';"
-    machine_data = artisan.read_query(connection, query)
+    machine_data = machine.read_query(connection, query)
 
     for data in machine_data:
 
         machine_id = data[0]
         machine_type = data[1]
         
-        current_mac = artisan.get_mac_addr()
+        current_mac = machine.get_mac_addr()
         stored_mac = data[2]
 
-        current_ip = artisan.get_ip()    
+        current_ip = machine.get_ip()    
         stored_ip = data[3]
 
 
@@ -44,7 +44,7 @@ def update_machine():
 
         # ? Running the actual checks
         if current_mac != stored_mac:
-            artisan.send_email(f"HEY! floating mac addr on machine {machine_id} ! Site might be unavailable")
+            machine.send_email(f"HEY! floating mac addr on machine {machine_id} ! Site might be unavailable")
             print(f"HEY! floating mac addr on machine {machine_id} ! Site might be unavailable")
             sys.exit(1)
 
@@ -52,7 +52,7 @@ def update_machine():
             print(f"Machine {machine_id}: New ip assigned updating \n")
             os.system("dhclient -v -r") # * releasing the old ip
             os.system("dhclient -v") # * requesting the new one
-            artisan.send_email(f"Machine: {machine_id} has applied the assinged ip {stored_ip}")
+            machine.send_email(f"Machine: {machine_id} has applied the assinged ip {stored_ip}")
 
 def update_clients():
     # get installed client array
@@ -60,13 +60,17 @@ def update_clients():
     cloud_clients = []
 
     # * downloading cloud users
-    connection = artisan.create_server_connection("database.local", "artisan", artisan.decrypt_creds("database"))
     query = f"SELECT * FROM machine_id WHERE uuid = '{mid}';"
-    cloud_data = artisan.read_query(connection, query)
+    cloud_data = machine.read_query(connection, query)
 
     with open("/tmp/cloud.cid", "w") as cloud_file:
-        cloud_data_new = cloud_data[0][4].replace(',', '\n')
-        cloud_file.write(cloud_data_new.rstrip())
+        if cloud_data[0][4] != None:
+            cloud_data_new = cloud_data[0][4].replace(',', '\n')
+            cloud_file.write(cloud_data_new.rstrip())
+        else:
+            cloud_data_new = " "
+            cloud_file.write(cloud_data_new.rstrip())
+
 
     # * phrasing cloud users
     with open("/tmp/cloud.cid") as cloud_cid:
@@ -97,7 +101,7 @@ def update_clients():
         if c_cid not in local_clients:
             index_num = cloud_clients.index(c_cid)
             cid_num = cloud_clients[index_num][0]
-            print(f"Machine 1: Client to add: {cid_num}\n")
+            print(f"Machine: {mid} Client to add: {cid_num}\n")
             adding.append(cid_num)
 
     # * finding what to del
@@ -105,14 +109,12 @@ def update_clients():
         if l_cid not in cloud_clients:
             index_num = local_clients.index(l_cid)
             cid_num = local_clients[index_num][0]
-            print(f"Machine 1: Client to suspend: {cid_num}\n")
+            print(f"Machine: {mid} Client to suspend: {cid_num}\n")
             deling.append(cid_num)
 
-    if adding:
-        client.add_clients(adding)
     
-    if deling:
-        client.sus_clients(deling)
+    client.add_clients(adding)
+    client.sus_clients(deling)
 
 update_machine()
 update_clients()

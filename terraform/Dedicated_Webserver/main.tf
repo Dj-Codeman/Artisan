@@ -51,7 +51,7 @@ resource "proxmox_vm_qemu" "Dedicated-Machine" {
     # set disk size here. leave it small for testing because expanding the disk takes time.
     size = "15G"
     type = "scsi"
-    storage = "local-lvm"
+    storage = "local"
     iothread = 1
   }
   

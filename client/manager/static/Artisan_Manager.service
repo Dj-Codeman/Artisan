@@ -1,7 +1,7 @@
 [Unit]
 Description=Artisan Hosting Machine Management System
 After=network.target
-Wants=ArtisanManager.timer
+Wants=Artisan_Manager.timer
 
 [Service]
 Type=oneshot

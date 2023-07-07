@@ -1,2 +1,2 @@
-from .machine_functions import send_email , get_mac_addr, create_server_connection 
-from .machine_functions import write_query , decrypt_creds, read_query, get_ip
+from artisan_tools.client_functions import *
+from artisan_tools.machine_functions import *

@@ -1,22 +1,23 @@
+#!/usr/bin/python3
 # import random,string
 import os,sys
 import zipfile
 import requests
-from machine_functions import create_server_connection, read_query, decrypt_creds
-from machine_functions import write_query, get_ip, send_email
+import artisan_tools.machine_functions as artisan
 
 # ! Artisan Tools Version
 version = "3.00"
 
 #! Global things
-connection = create_server_connection("database.local", "artisan", decrypt_creds("database"))
+connection = artisan.create_server_connection("database.local", "artisan", artisan.decrypt_creds("database"))
 
-with open("/etc/artisan.mid", 'r') as file:
-    machine_id = file.read().rstrip()
+if os.path.exists("/etc/artisan.mid"):
+    with open("/etc/artisan.mid", 'r') as file:
+        machine_id = file.read().rstrip()
 
 def resolve_client(cid):
     query = f"SELECT * FROM client_id WHERE client_id = '{cid}'"
-    client_data = read_query(connection, query)
+    client_data = artisan.read_query(connection, query)
     return client_data
 
 def download_wp():
@@ -69,7 +70,7 @@ def finish_adding_user(username, cid, pn):
     os.system(f"systemctl reload apache2")
 
     query = f"UPDATE client_id SET client_hs = 'TRUE' WHERE client_id = '{cid}';"
-    write_query(connection, query)
+    artisan.write_query(connection, query)
     print(f"Machine {machine_id}: {username} is home now ! \n")
 
     with open("/etc/artisan.cid") as input:
@@ -79,7 +80,7 @@ def finish_adding_user(username, cid, pn):
     with open("/etc/artisan.cid", "w") as output:
         for line in lines:
             output.write(line.rstrip())
-        output.write(f",{cid}")
+        output.write(f"{cid},")
 
 
 
@@ -101,8 +102,8 @@ def add_clients(array):
             username = f"{client_fn[0]}{client_ln}-{client_id}"
             print(f"Machine {machine_id}: Provisioning : {username} \n")
 
-            query = f"UPDATE client_id SET client_ip = '{get_ip()}' WHERE client_ip = '{client_ip}'"
-            write_query(connection, query)
+            query = f"UPDATE client_id SET client_ip = '{artisan.get_ip()}' WHERE client_ip = '{client_ip}'"
+            artisan.write_query(connection, query)
 
             # Downloading wordpress
             print(f"Machine {machine_id}: Downloading Lastest WP \n")
@@ -113,7 +114,7 @@ def add_clients(array):
             finish_adding_user(username, client_id, client_pn)
 
             print(f"Machine {machine_id}: Done adding : {username} ! Changes may take up to 60 seconds to propogate \n")
-            send_email(f"NOTICE: user {username} has been registered on {machine_id} with port num {client_pn}")
+            artisan.send_email(f"NOTICE: user {username} has been registered on {machine_id} with port num {client_pn}")
 
 
 
@@ -152,12 +153,12 @@ def sus_clients(array):
             print(f"Machine {machine_id}: Making {username} homeless \n")
                    
             query = f"UPDATE client_id SET client_ip = '10.1.0.000', client_hs = 'False' WHERE client_id = '{client_id}';"
-            write_query(connection, query)
+            artisan.write_query(connection, query)
                     
             # ! updating the cid file
             with open("/etc/artisan.cid") as infile, open(f"/tmp/artisan.cid", 'w') as outfile: 
                 for line in infile:
-                    outfile.write(line.replace(f",{client_id.rstrip()}", ''))
+                    outfile.write(line.replace(f"{client_id.rstrip()},", ''))
                    
             # ! delete old and copy new
             os.remove("/etc/artisan.cid")

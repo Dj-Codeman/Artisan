@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os,sys
 import mysql.connector
 from mysql.connector import Error
@@ -14,17 +15,17 @@ def decrypt_creds(name):
 
     # * getting the name and pw
     if name == "database":
-        os.system("encore --read artisan database")
+        os.system("encore --read artisan database > /dev/null")
         with open("/tmp/database.pw", 'r') as file:
             password = file.read().rstrip()
-        os.system("rm /tmp/database.pw")
+        os.system("rm /tmp/database.pw > /dev/null")
         return password
     
     elif name == "email":
-        os.system("encore --read artisan email")
+        os.system("encore --read artisan email > /dev/null")
         with open("/tmp/email.pw", 'r') as file:
             password = file.read().rstrip()
-        os.system("rm /tmp/database.pw")
+        os.system("rm /tmp/database.pw > /dev/null")
         return password
     
 # ! Emailing tools
@@ -53,9 +54,10 @@ def create_server_connection(host_name, user_name, user_password):
             passwd=user_password,
             database="Artisan_Map"
         )
-        print("MySQL Database connection successful \n")
+        print(">") # * this function is called in client seen spaces. This indicates the connection suceeded without disclosing too much
     except Error as err:
-        print(f"Error: '{err}'")
+        print("!")
+        send_email(f"Client {host_name} could not connect to the database wuth the following error: '{err}'")
 
     return connection
 

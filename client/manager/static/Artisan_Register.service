@@ -1,7 +1,6 @@
 [Unit]
 Description=Artisan Hosting Machine Registration System
 After=network.target
-Wants=ArtisanManager.timer
 
 [Service]
 Type=oneshot
