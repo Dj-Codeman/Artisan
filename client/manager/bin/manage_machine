@@ -50,8 +50,8 @@ def update_machine():
 
         if current_ip != stored_ip:
             print(f"Machine {machine_id}: New ip assigned updating \n")
-            os.system("dhclient -v -r") # * releasing the old ip
-            os.system("dhclient -v") # * requesting the new one
+            os.system("dhclient -r") # * releasing the old ip
+            os.system("dhclient") # * requesting the new one
             machine.send_email(f"Machine: {machine_id} has applied the assinged ip {stored_ip}")
 
 def update_clients():

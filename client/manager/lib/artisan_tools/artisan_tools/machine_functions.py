@@ -4,6 +4,7 @@ import mysql.connector
 from mysql.connector import Error
 import fcntl, socket, struct
 from email.message import EmailMessage
+import netifaces as ni
 import smtplib
 
 # ! password magic
@@ -40,9 +41,12 @@ def send_email(message):
     msg['To'] = "dwhitfield@ramfield.net"
     msg.set_content(message)
 
-    with smtplib.SMTP_SSL("mail.ramfield.net", port ) as server:
-        server.login("artisan_bot@artisanhosting.net", password)
-        server.send_message(msg)
+    try:
+        with smtplib.SMTP_SSL("mail.ramfield.net", port ) as server:
+            server.login("artisan_bot@artisanhosting.net", password)
+            server.send_message(msg)
+    except:
+        print("Failed to send email...... Anyways")
 
 # ! mysql connecting func
 def create_server_connection(host_name, user_name, user_password):
@@ -90,14 +94,6 @@ def get_mac_addr(): # consider hardcoding mac for specific vm
     return '-'.join('%02x' % b for b in info[18:24])
 
 def get_ip():
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.settimeout(0)
-        try:
-            s.connect(('10.1.0.255', 1))
-            ip = s.getsockname()[0]
-        except Exception:
-            ip = '127.0.0.1'
-        finally:
-            s.close()
-        return ip
+    i = "ens18"
+    return ni.ifaddresses(i)[ni.AF_INET][0]['addr']
 
